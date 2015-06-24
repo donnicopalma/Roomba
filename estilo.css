@@ -1,0 +1,129 @@
+.Tarjeta1 {
+	font-size: 12px;
+	font-family: Arial;
+	color: #6a5f4d;
+}
+.Tarjeta2 {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 14px;
+	color: #6a5f4d;
+}
+.Tarjeta {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 18px;
+	color: #312c19;
+}
+.Estilo7 {
+	font-size: 9px;
+	color: #0000FF;
+	font-family: Arial;
+}
+.Bar {
+	color: #ed7019;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+.principal {
+	font-family: Arial;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.entrada {
+	font-family: Arial;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+}
+.vinculos {
+	font-family: Arial;
+	font-size: 12px;
+	color: #1D2FE4;
+	font-weight: bold;
+}
+.subtitulos {
+	font-family: "Franklin Gothic Medium";
+	font-size: 14px;
+	color: #333333;
+	font-style: normal;
+	font-weight: bold;
+}
+.fondo1 {
+background: url(imagenes/cuarto3.jpg);
+background-repeat:no-repeat;
+}
+.fondo {
+background: url(imagenes_index/foto1.jpg);
+background-repeat:no-repeat;
+}
+.barra_iz {
+background: url(imagenes_index/fondo3.png);
+background-repeat:no-repeat;
+}
+.centro {
+background: url(imagenes_index/fondo4.png);
+background-repeat:no-repeat;
+}
+.home {
+background: url(home/fondo.png);
+background-repeat:no-repeat;
+}
+.Estilo10 {
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	color: #A69F91;
+}
+.Blancas {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 10px;
+	color: #F3F3F3;
+}
+
+
+.importantes {
+	font-size: 14px;
+	font-family: "MS Sans Serif";
+	font-weight: bold;
+	color: #333333;
+}
+
+.Titulos {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 14px;
+	color: #332A1B;
+}
+.casillas {
+background:#F8FF84;
+border-color:#C45E16;
+border-style:solid;
+border-width:3px;
+}
+.b-casillas {
+border-color:#C45E16;
+border-style:solid;
+border-width:3px;
+}
+.Estilo27 {
+	font-family: Arial;
+	font-size: 10px;
+	color: #0000FF;
+}
