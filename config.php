@@ -1,7 +1,6 @@
-
 <?php
 // Conectando, seleccionando la base de datos
-$link = mysql_connect('srv152.hostingnic.cl', 'estilo_roomb', 'estiloroom2015..')
+$link = mysql_connect('estilodigital.cl', 'estilo_roomb', 'estiloroom2015..')
     or die('No se pudo conectar: ' . mysql_error());
 echo 'Connected successfully';
 mysql_select_db('estilo_roomba') or die('No se pudo seleccionar la base de datos');
