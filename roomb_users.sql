@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-07-2015 a las 02:37:52
+-- Tiempo de generación: 26-08-2015 a las 02:58:08
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -147,14 +147,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fecha_registro` date DEFAULT NULL,
   `dinero` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`ID`, `nombre`, `apellidos`, `contrasena`, `mail`, `sexo`, `fecha_nac`, `fecha_registro`, `dinero`) VALUES
-(1, 'Nicolás', 'Palma Silva', '1234', 'nico.palma@gmail.com', 0, '1987-05-25', '2015-07-07', 99999);
+(1, 'Nicolás', 'Palma Silva', '1234', 'nico.palma@gmail.com', 0, '1987-05-25', '2015-07-07', 99999),
+(2, 'Luis', 'Guajardo', '123456', 'luchiani@gmail.com', 0, '1991-03-08', '2015-08-24', 9999999);
 
 -- --------------------------------------------------------
 
@@ -199,9 +200,9 @@ INSERT INTO `usuarios` (`id`, `pass`, `user`, `foto`, `fotoB`, `nombre`, `apelli
 -- Filtros para la tabla `amigo`
 --
 ALTER TABLE `amigo`
-  ADD CONSTRAINT `amigo_ibfk_3` FOREIGN KEY (`id_user_2`) REFERENCES `user` (`ID`),
   ADD CONSTRAINT `amigo_ibfk_1` FOREIGN KEY (`id_tipo`) REFERENCES `tipo_amigo` (`id`),
-  ADD CONSTRAINT `amigo_ibfk_2` FOREIGN KEY (`id_user_1`) REFERENCES `user` (`ID`);
+  ADD CONSTRAINT `amigo_ibfk_2` FOREIGN KEY (`id_user_1`) REFERENCES `user` (`ID`),
+  ADD CONSTRAINT `amigo_ibfk_3` FOREIGN KEY (`id_user_2`) REFERENCES `user` (`ID`);
 
 --
 -- Filtros para la tabla `cuarto`
