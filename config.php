@@ -4,7 +4,7 @@
 $link = mysql_connect('srv152.hostingnic.cl', 'estilo_roomb', 'estiloroom2015..')
     or die('No se pudo conectar: ' . mysql_error());
 echo 'Connected successfully';
-mysql_select_db('estilo_roomb') or die('No se pudo seleccionar la base de datos');
+mysql_select_db('estilo_roomba') or die('No se pudo seleccionar la base de datos');
 
 // Realizar una consulta MySQL
 $query = 'SELECT * FROM user';
