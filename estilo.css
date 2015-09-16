@@ -110,11 +110,17 @@ background-repeat:no-repeat;
 	color: #333333;
 }
 
+label{
+	font-family: Arial;
+	font-size: 14px;
+}
 .Titulos {
 	font-family: Arial;
 	font-weight: bold;
 	font-size: 14px;
 	color: #332A1B;
+	margin-left: 40px;
+	margin-top: 150px;
 }
 .casillas {
 background:#F8FF84;

@@ -6,8 +6,8 @@ $link = mysql_connect('localhost', 'root', '')
 mysql_select_db('roomb_users') or die('No se pudo seleccionar la base de datos');
 
 // Realizar una consulta MySQL
-$query = 'SELECT * FROM user';
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+// $query = 'SELECT * FROM user';
+// $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 /* / Imprimir los resultados en HTML
 echo "<table>\n";
@@ -21,8 +21,8 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 echo "</table>\n";
 */
 // Liberar resultados
-mysql_free_result($result);
+//mysql_free_result($result);
 
 // Cerrar la conexión
-mysql_close($link);
+//mysql_close($link);
 ?>

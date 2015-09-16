@@ -3,72 +3,69 @@
   <tr>
     <td height="209" colspan="5" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
-      <tr>
-        <td width="43" height="100">&nbsp;</td>
-        <td width="247">&nbsp;</td>
-        <td width="35">&nbsp;</td>
-      </tr>
-      <tr>
-        <td height="32">&nbsp;</td>
-        <td valign="top"><span class="Titulos">&iexcl;Reg&iacute;strate en Roomba!
+      
+        <div class="Titulos"><span>&iexcl;Reg&iacute;strate en Roomba!
               Es GRATIS
             <br />
             y de
-          libre acceso para todos.</span></td>
-          <td>
+          libre acceso para todos.</span></div>
+         
+         
+                <!-- INICIO REGISTRO -->
+                
+               
+          <div style="margin-left: 40px; margin-top: 15px;">
 			<form id="regForm" action="submit.php" method="post">
 			
-			  <tr>
-			    <td><label for="fname">First Name:</label></td>
-			    <td><div class="input-container"><input name="fname" id="fname" type="text" /></div></td>
-			  </tr>
-			  <tr>
-			    <td><label for="lname">Last Name:</label></td>
-			    <td><div class="input-container"><input name="lname" id="lname" type="text" /></div></td>
-			  </tr>
-			  <tr>
-			    <td><label for="email">Your Email:</label></td>
-			    <td><div class="input-container"><input name="email" id="email" type="text" /></div></td>
-			  </tr>
-			  <tr>
-			    <td><label for="pass">Password:</label></td>
-			    <td><div class="input-container"><input name="pass" id="pass" type="password" /></div></td>
-			  </tr>
-			  <tr>
-			    <td><label for="sex-select">I am:</label></td>
-			    <td>
+			  <div>
+			    <label for="fname">Nombres:</label>
+			    <div class="input-container"><input name="fname" id="fname" type="text" /></div>
+			  </div>
+			  <div>
+			    <label for="lname">Apellidos:</label>
+			    <div class="input-container"><input name="lname" id="lname" type="text" /></div>
+			  </div>
+			  <div>
+			    <label for="email">Email:</label>
+			    <div class="input-container"><input name="email" id="email" type="text" /></div>
+			  </div>
+			  <div>
+			    <label for="pass">Password:</label>
+			    <div class="input-container"><input name="pass" id="pass" type="password" /></div>
+			  </div>
+			  <div>
+			    <label for="sex-select">Sexo:</label>
+			    
 			    <div class="input-container">
-			    <select name="sex-select" id="sex-select">
-			    <option value="0">Select Sex:</option>
-			    <option value="1">Female</option>
-			    <option value="2">Male</option>
+			    <select name="sex" id="sex">
+			    <option value="1">Masculino</option>
+			    <option value="2">Femenino</option>
 			    </select>
 			    </div>
 			    
-			    </td>
-			  </tr>
-			  <tr>
-			    <td><label>Birthday:</label></td>
-			    <td>
+			    
+			  </div>
+			  <div>
+			    <label>Fecha de nacimiento:</label>
+			    
 			    <div class="input-container">
-			    <select name="month"><option value="0">Month:</option><?=generate_options(1,12,'callback_month')?></select>
-			    <select name="day"><option value="0">Day:</option><?=generate_options(1,31)?></select>
-				<select name="year"><option value="0">Year:</option><?=generate_options(date('Y'),1900)?></select>
+			    <select name="dia"><option value="0">D&iacute;a:</option><?=generate_options(1,31)?></select>
+			    <select name="mes"><option value="0">Mes:</option><?=generate_options(1,12,'callback_month')?></select>
+				<select name="ano"><option value="0">A&ntilde;o:</option><?=generate_options(date('Y'),1900)?></select>
 			    </div>
-			    </td>
-			  </tr>
-			  <tr>
-			  <td>&nbsp;</td>
-			  <td><input type="submit" class="greenButton" value="Sign Up" /><img id="loading" src="img/ajax-loader.gif" alt="working.." />
-			</td>
-			  </tr>
+			    
+			  </div>
+			  <div>
+			  <input type="submit" class="greenButton" value="Reg&iacute;strate" /><img id="loading" src="img/ajax-loader.gif" alt="Trabajando.." />
+			
+			  </div>
 			</form>
 			<div id="error">
 			&nbsp;
 			</div>
-			</td>
+			
+          </div>
           
-          <!-- INICIO REGISTRO -->
           
 			
 

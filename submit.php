@@ -1,52 +1,64 @@
 <?php
+include ("config.php");
 
-// we check if everything is filled in
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$pass = $_POST['pass'];
+$sex = $_POST['sex'];
+$dia = $_POST['dia'];
+$mes = $_POST['mes'];
+$ano = $_POST['ano'];
 
-if(empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['email']) || empty($_POST['pass']))
+
+//Valida si los campos nombre, apellidos, correo y password fueron llenados 
+
+if(empty($fname) || empty($lname) || empty($email) || empty($pass))
 {
-	die(msg(0,"All the fields are required"));
+	die(msg(0,"Todos los campos son requeridos"));
 }
 
 
-// is the sex selected?
+// Validador de seleccion de sexo
 
-if(!(int)$_POST['sex-select'])
+if(!(int)$sex)
 {
-	die(msg(0,"You have to select your sex"));
+	die(msg(0,"Debes seleccionar tu sexo"));
 }
 
 
-// is the birthday selected?
+// Validador de fecha de nacimiento seleccionada
 
-if(!(int)$_POST['day'] || !(int)$_POST['month'] || !(int)$_POST['year'])
+if(!(int)$dia || !(int)$mes || !(int)$ano)
 {
-	die(msg(0,"You have to fill in your birthday"));
+	die(msg(0,"Debes seleccionar tu fecha de nacimiento"));
 }
 
 
-// is the email valid?
+// Validador de correo
 
 if(!(preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $_POST['email'])))
-	die(msg(0,"You haven't provided a valid email"));
+	die(msg(0,"Debes ingresar un e-mail v&aacute;lido"));
 
 
+// Colocar las validaciones contra la base de datos luego de esta fila
 
-// Here you must put your code for validating and escaping all the input data,
-// inserting new records in your DB and echo-ing a message of the type:
+$fecha = $ano."-".$mes."-".$dia;
 
-// echo msg(1,"/member-area.php");
-
-// where member-area.php is the address on your site where registered users are
-// redirected after registration.
+$sql = "INSERT INTO user (nombre, apellidos, contrasena, mail, sexo, fecha_nac, fecha_registro, dinero) VALUES ('$fname', '$lname', '$pass', '$email', '$sex', '$fecha', SYSDATE(), '99999')";
+$result = mysql_query($sql);
 
 
-
-
+// Envía a página de registro exitoso
 echo msg(1,"registered.html");
 
-
+// Envía mensaje de error según las validaciones realizadas más arriba
 function msg($status,$txt)
 {
 	return '{"status":'.$status.',"txt":"'.$txt.'"}';
 }
+
+
+// Cierra la conexión con la base de datos
+mysql_close($link);
 ?>
