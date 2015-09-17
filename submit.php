@@ -41,6 +41,14 @@ if(!(preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/
 	die(msg(0,"Debes ingresar un e-mail v&aacute;lido"));
 
 
+	// Valida si correo existe
+$resultd = mysql_query("SELECT mail FROM user WHERE mail = '$email'");
+
+if(mysql_fetch_array($resultd,MYSQL_ASSOC))
+{
+	die(msg(0,"El e-mail ingresado ya está registrado"));
+}
+
 // Colocar las validaciones contra la base de datos luego de esta fila
 
 $fecha = $ano."-".$mes."-".$dia;

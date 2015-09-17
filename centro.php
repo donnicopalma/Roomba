@@ -90,64 +90,7 @@ body {
           <td>&nbsp;</td>
       </tr>
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+     
       
     </table></td>
   </tr>
@@ -162,19 +105,13 @@ body {
   
   
   
-  
-  
-  
-  
-  
-  
   <tr>
     <td height="205">&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
-      <form action="login2.php" method="post" name="login">
+      <form action="validar_usuario.php" method="post">
         <tr>
           <td width="8" height="14"></td>
             <td width="10"></td>
