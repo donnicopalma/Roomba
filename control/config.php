@@ -5,8 +5,8 @@ $link = mysql_connect('localhost', 'root', '')
 //echo 'Connected successfully';
 mysql_select_db('roomb_users') or die('No se pudo seleccionar la base de datos');
 
-$query = 'SELECT * FROM user';
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+//$query = 'SELECT * FROM user';
+//$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 
 

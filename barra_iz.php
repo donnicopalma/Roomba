@@ -11,7 +11,7 @@
           libre acceso para todos.</span></div>
          
          
-                <!-- INICIO REGISTRO -->
+<!-- INICIO REGISTRO -->
                 
                
           <div style="margin-left: 40px; margin-top: 15px;">
@@ -83,18 +83,7 @@
     <td width="213">&nbsp;</td>
     <td width="9">&nbsp;</td>
   </tr>
-  <tr>
-    <td height="290">&nbsp;</td>
-    <td>&nbsp;</td>
-    <td colspan="2" rowspan="3" valign="top"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td height="28"></td>
-    <td></td>
-    <td></td>
-  </tr>
+
   
   <tr>
     <td height="127" colspan="5" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
