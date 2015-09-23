@@ -23,7 +23,7 @@ if($dato)
   $_SESSION["nombre"]= $dato["nombre"];
   $dato = mysql_fetch_array($sql);
   //Redireccionamos a la pagina: index.php
-  header("Location: ../index.php");  
+  header("Location: ../home.php");  
  }
  else
  {
