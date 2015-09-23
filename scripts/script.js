@@ -17,7 +17,7 @@ function register()
 	
 	$.ajax({
 		type: "POST",
-		url: "submit.php",
+		url: "control/submit.php",
 		data: $('#regForm').serialize(),
 		dataType: "json",
 		success: function(msg){

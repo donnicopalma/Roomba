@@ -8,7 +8,7 @@ $password = $_POST["password"];
 /*Consulta de mysql con la que indicamos que necesitamos que seleccione
 **solo los campos que tenga como nombre_administrador el que el formulario
 **le ha enviado*/
-$result = mysql_query("SELECT mail,contrasena FROM user WHERE mail = '$usuario'");
+$result = mysql_query("SELECT nombre,contrasena,mail FROM user WHERE mail = '$usuario'");
 
 //Validamos si el nombre del administrador existe en la base de datos o es correcto
 if($row = mysql_fetch_array($result))
@@ -19,9 +19,10 @@ if($row = mysql_fetch_array($result))
   //Creamos sesión
   session_start();  
   //Almacenamos el nombre de usuario en una variable de sesión usuario
-  $_SESSION['usuariox'] = $usuario;  
+  $_SESSION['usuariox'] = $usuario;
+  $_SESSION["nombre"]= $row["nombre"];
   //Redireccionamos a la pagina: index.php
-  header("Location: index2.php");  
+  header("Location: ../index.php");  
  }
  else
  {
@@ -29,7 +30,7 @@ if($row = mysql_fetch_array($result))
   ?>
    <script languaje="javascript">
     alert("Contraseña Incorrecta");
-    location.href = "index.php";
+    location.href = "../index.php";
    </script>
   <?
              
@@ -41,7 +42,7 @@ else
 ?>
  <script languaje="javascript">
   alert("El nombre de usuario es incorrecto!");
-  location.href = "index.php";
+  location.href = "../index.php";
  </script>
 <?  
          

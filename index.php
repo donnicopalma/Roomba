@@ -1,11 +1,11 @@
-<?php require_once('config.php'); ?>
+<?php require_once('control/config.php'); ?>
 <?php
 	define('INCLUDE_CHECK',1);
-	require "functions.php";
+	require "control/functions.php";
 	
 	session_start();
 ?>
-
+Se crean carpetas, se eliminan archivos y se mueven archivos a las carpetas creadas para dar orden.
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,10 +14,10 @@
 <title>Bienvenido a ROOMBA!!</title>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
 
-<link href="estilo.css" rel="stylesheet" type="text/css" />
-<link href="demo.css" rel="stylesheet" type="text/css" />
+<link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
+<link href="estilos/demo.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

@@ -15,7 +15,7 @@
                 
                
           <div style="margin-left: 40px; margin-top: 15px;">
-			<form id="regForm" action="submit.php" method="post">
+			<form id="regForm" action="control/submit.php" method="post">
 			
 			  <div>
 			    <label for="fname">Nombres:</label>

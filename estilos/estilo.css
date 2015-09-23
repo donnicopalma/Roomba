@@ -70,30 +70,30 @@ a:active {
 	font-weight: bold;
 }
 .fondo1 {
-background: url(imagenes/cuarto3.jpg);
+background: url(../imagenes/cuarto3.jpg);
 background-repeat:no-repeat;
 }
 .fondo {
-background: url(imagenes_index/foto1.jpg);
+background: url(../imagenes_index/foto1.jpg);
 background-repeat:no-repeat;
 }
 .barra_iz {
-background: url(imagenes_index/fondo3.png);
+background: url(../imagenes_index/fondo3.png);
 background-repeat:no-repeat;
 }
 .centro {
-background: url(imagenes_index/fondo4.png);
+background: url(../imagenes_index/fondo4.png);
 background-repeat:no-repeat;
 }
-.home {
-background: url(home/fondo.png);
+.../home {
+background: url(../home/fondo.png);
 background-repeat:no-repeat;
 }
 .Estilo10 {
 	font-size: 12px;
 	font-family: Arial;
 	font-weight: bold;
-	color: #A69F91;
+	color: #;
 }
 .Blancas {
 	font-family: Arial;

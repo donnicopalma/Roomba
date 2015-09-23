@@ -111,7 +111,7 @@ body {
     <td>&nbsp;</td>
     <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
-      <form action="validar_usuario.php" method="post">
+      <form action="control/validar_usuario.php" method="post">
         <tr>
           <td width="8" height="14"></td>
             <td width="10"></td>
