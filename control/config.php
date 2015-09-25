@@ -1,9 +1,16 @@
 <?php
 // Conectando, seleccionando la base de datos
-$link = mysql_connect('localhost', 'root', '')
-    or die('No se pudo conectar: ' . mysql_error());
+$hostdb = "localhost";
+$usernamedb = "root";
+$passdb = "";
+$namedb = "roomb_users";
+
+$link = mysql_connect($hostdb, $usernamedb, $passdb);
+$link or die('No se pudo conectar: ' . mysql_error());
 //echo 'Connected successfully';
-mysql_select_db('roomb_users') or die('No se pudo seleccionar la base de datos');
+mysql_select_db($namedb) or die('No se pudo seleccionar la base de datos');
+
+
 
 //$query = 'SELECT * FROM user';
 //$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());

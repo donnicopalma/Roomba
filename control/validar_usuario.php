@@ -22,6 +22,7 @@ if($dato)
   $_SESSION['user_room'] = $usuario;
   $_SESSION["nombre"]= $dato["nombre"];
   $dato = mysql_fetch_array($sql);
+  
   //Redireccionamos a la pagina: index.php
   header("Location: ../home.php");  
  }

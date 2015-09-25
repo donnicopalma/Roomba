@@ -127,7 +127,7 @@ body {
           <td height="43"></td>
             <td colspan="7" valign="top"><span class="entrada">E-mail
               <label>
-              <input name="username" type="text" class="casillas" autocomplete="off"/>
+              <input name="username" type="text" class="casillas"/>
               </label>
             </span></td>
             <td></td>
@@ -139,7 +139,7 @@ body {
         <tr>
           <td height="43">&nbsp;</td>
             <td colspan="7" valign="top"><span class="entrada">Password
-              <input name="password" type="password" class="casillas" autocomplete="off"/>
+              <input name="password" type="password" class="casillas"/>
             </span></td>
             <td>&nbsp;</td>
           </tr>
@@ -161,7 +161,7 @@ body {
             <td></td>
             <td valign="top"><span class="entrada">
               <label>
-              <input type="checkbox" name="rec" id="rec" autocomplete="off"/>
+              <input type="checkbox" name="recordar" id="recordar" />
               </label>
             Recordarme</span></td>
             <td></td>
