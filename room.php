@@ -10,16 +10,9 @@ if(isset($_SESSION['user_room'])) {
 	$user = $_SESSION["user_room"];
 	$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
 	$dato = mysql_fetch_array($sql_data);
-	
-	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = '1'");
-	
-
-
-/* Puedes meter las imagenes que quieras en el arreglo, y luego... */
-
-
-/* Los corchetes son llaves ya me voy ojala te sirva */
-
+	$id_userx = $dato['ID'];
+	 
+	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = (select id from cuarto where id_user = '$id_userx')");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
