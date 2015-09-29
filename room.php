@@ -13,8 +13,30 @@ if(isset($_SESSION['user_room'])) {
 	
 	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = '1'");
 	$dato_objeto = mysql_fetch_array($sql_objetos);
-	$mono = $dato_objeto['left'];
-	$nombrem = 'objetos/cama-1.jpg';
+	$dato_objetox = mysql_fetch_array($sql_objetos,MYSQL_BOTH);
+	
+	
+	for ($i = '0';$i < $dato_objetox[0]; $i++){
+		
+	$sql_objetosx = mysql_query("SELECT * FROM objeto WHERE id_cuarto = '1'");
+	$dato_objetox = mysql_fetch_array($sql_objetosx);
+	echo $dato_objetox['id'];
+	$dato_objetox[]++;
+	}
+	
+	$left = $dato_objeto['left'];
+	$top = $dato_objeto['top'];
+	$objeto1 = $dato_objeto['ruta'];
+	$id_objeto = $dato_objeto['id'];	
+$imagenes = array(
+'#' => $objeto1
+);
+
+/* Puedes meter las imagenes que quieras en el arreglo, y luego... */
+
+
+/* Los corchetes son llaves ya me voy ojala te sirva */
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -33,9 +55,15 @@ google.load("scriptaculous", "1.9.0");
 
 </head>
 <body>
+<?php
+foreach($imagenes as $link => $rutaImagen){
+echo '<a href="'.$link.'"><img id="icono'. $id_objeto .'" style="cursor: move; border: 0px none; height: 30%; width: 30%; position: relative; z-index: 0; left:
+'.$left.';px; top: '.$top.';px;" src="'.$rutaImagen.'"></a>  <script type="text/javascript">new Draggable("icono'. $id_objeto .'");</script>' ; 
+};
 
-<img id="icono1" style="cursor: move; border: 0px none; height: 30%; width: 30%; position: relative; z-index: 0; left: '<?php echo $dato_objeto['left']; ?>'px; top: '<?php echo $dato_objeto['top']; ?>'px;" src='<?php echo $nombrem; ?>'"/>
-<script type="text/javascript">new Draggable('icono1');</script>
+
+?>
+<script type="text/javascript">new Draggable('icono"<?php $id_objeto; ?>"');</script>
 
 <?php } else {
 	echo 'Bienvenido <b>Visitante</b><br />

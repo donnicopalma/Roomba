@@ -3,6 +3,7 @@ body {
 	background-image: url();
 	background-repeat: no-repeat;
 }
+
 .Tarjeta1 {
 	font-size: 12px;
 	font-family: Arial;
@@ -93,7 +94,7 @@ background-repeat:no-repeat;
 	font-size: 12px;
 	font-family: Arial;
 	font-weight: bold;
-	color: #;
+	color: #589D39;
 }
 .Blancas {
 	font-family: Arial;
