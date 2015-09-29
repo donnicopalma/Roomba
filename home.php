@@ -19,16 +19,7 @@ if(isset($_SESSION['user_room'])) {
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/script.js"></script>
-
-
-<link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
 <link href="estilos/demo.css" rel="stylesheet" type="text/css" />
-
-<style type="text/css">
-<!--
--->
-</style>
-
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
