@@ -11,7 +11,7 @@ if(isset($_SESSION['user_room'])) {
 	$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
 	$dato = mysql_fetch_array($sql_data);
 	$id_userx = $dato['ID'];
-	 
+	
 	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = (select id from cuarto where id_user = '$id_userx')");
 ?>
 
@@ -21,6 +21,8 @@ if(isset($_SESSION['user_room'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 
+<link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
+
 <!-- Prototype y Scriptaculous-->
 <script src='http://www.google.com/jsapi'></script>
 <script>
@@ -28,9 +30,37 @@ google.load("prototype","1.7.0.0");
 google.load("scriptaculous", "1.9.0");
 </script>
 <!-- Prototype y Scriptaculous-->
+<script type="text/javascript">
+//EVENTOS EN javascript
+
+function guardar_posicion(tid, tleft, ttop)
+{
+	alert(tleft);
+	var lefta = tleft;
+	
+	<?php
+	
+	$left = 
+	'<script type="text/javascript">;
+     var mivarJS="Asignado en JS";
+     document.writeln (mivarJS);
+     </script>'; 
+     echo $left."\n<br>";
+	
+	
+	$sql = "UPDATE `objeto` SET `left` = '33' WHERE `id` ='1'";
+	
+		 
+	?>
+
+}
+
+</script>
+
 
 </head>
-<body>
+<body class="body_room">
+<div class="logo_room"></div>
 <?php
 
  while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
@@ -41,9 +71,10 @@ google.load("scriptaculous", "1.9.0");
 		$id_objeto = $dato_objeto['id'];
 		$ruta_imagen= $dato_objeto['ruta'];
 		
-		echo '<img id="icono'. $id_objeto .'" style="cursor: move; border: 0px none; height: 30%; width: 30%; position: relative; z-index: 0; left:
-		'.$left.';px; top: '.$top.';px;" src="'.$ruta_imagen.'"></a>  <script type="text/javascript">new Draggable("icono'. $id_objeto .'");</script>' ; 
- }
+		echo '<img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top)" style="cursor: move; border: 0px none; height: 30%; position: relative; z-index: 0; left:
+		'.$left.';px; top: '.$top.';px;" src="'.$ruta_imagen.'"></a>  <script type="text/javascript">new Draggable("'. $id_objeto .'");</script>' ;
+		
+}
  
 ?>
 <script type="text/javascript">new Draggable('icono"<?php $id_objeto; ?>"');</script>
