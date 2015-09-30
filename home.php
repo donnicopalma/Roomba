@@ -10,6 +10,7 @@ if(isset($_SESSION['user_room'])) {
 	$user = $_SESSION["user_room"];
 	$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
 	$dato = mysql_fetch_array($sql_data);
+	$this_page = "<a class='Estilo10' href='room.php'>Ir a tu Cuarto</a>";
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

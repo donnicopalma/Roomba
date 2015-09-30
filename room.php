@@ -12,6 +12,7 @@ if(isset($_SESSION['user_room'])) {
 	$dato = mysql_fetch_array($sql_data);
 	$id_userx = $dato['ID'];
 	
+	$this_page = "<a class='Estilo10' href='home.php'>Ir al Home</a>";
 	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = (select id from cuarto where id_user = '$id_userx')");
 ?>
 
@@ -22,36 +23,15 @@ if(isset($_SESSION['user_room'])) {
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
-
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<script type="text/javascript">
-function guardar_posicion(tid, tleft, ttop){
-
-        var parametros = {
-                "tid"	: tid,
-                "tleft" : tleft,
-                "ttop"	: ttop
-        };
-        $.ajax({
-                data:  parametros,
-                url:   'control/actualiza_posicion.php',
-                type:  'post',
-                beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
-                },
-                success:  function (response) {
-                        $("#resultado").html(response);
-                }
-        });
-        
-}
-</script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="scripts/script.js"></script>
 
 </head>
 <body class="body_room">
-<div class="logo_room"></div>
+<div class="logo_room">
+
+<div style="height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <?php
 
  while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {

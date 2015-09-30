@@ -49,3 +49,24 @@ function error(act,txt)
 	hideshow('error',act);
 	if(txt) $('#error').html(txt);
 }
+
+function guardar_posicion(tid, tleft, ttop){
+
+        var parametros = {
+                "tid"	: tid,
+                "tleft" : tleft,
+                "ttop"	: ttop
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'control/actualiza_posicion.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) {
+                        $("#resultado").html(response);
+                }
+        });
+        
+}
