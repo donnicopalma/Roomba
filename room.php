@@ -23,40 +23,31 @@ if(isset($_SESSION['user_room'])) {
 
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
 
-<!-- Prototype y Scriptaculous-->
-<script src='http://www.google.com/jsapi'></script>
-<script>
-google.load("prototype","1.7.0.0");
-google.load("scriptaculous", "1.9.0");
-</script>
-<!-- Prototype y Scriptaculous-->
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <script type="text/javascript">
-//EVENTOS EN javascript
+function guardar_posicion(tid, tleft, ttop){
 
-function guardar_posicion(tid, tleft, ttop)
-{
-	alert(tleft);
-	var lefta = tleft;
-	
-	<?php
-	
-	$left = 
-	'<script type="text/javascript">;
-     var mivarJS="Asignado en JS";
-     document.writeln (mivarJS);
-     </script>'; 
-     echo $left."\n<br>";
-	
-	
-	$sql = "UPDATE `objeto` SET `left` = '33' WHERE `id` ='1'";
-	
-		 
-	?>
-
+        var parametros = {
+                "tid"	: tid,
+                "tleft" : tleft,
+                "ttop"	: ttop
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'control/actualiza_posicion.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) {
+                        $("#resultado").html(response);
+                }
+        });
+        
 }
-
 </script>
-
 
 </head>
 <body class="body_room">
@@ -71,14 +62,21 @@ function guardar_posicion(tid, tleft, ttop)
 		$id_objeto = $dato_objeto['id'];
 		$ruta_imagen= $dato_objeto['ruta'];
 		
-		echo '<img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top)" style="cursor: move; border: 0px none; height: 30%; position: relative; z-index: 0; left:
-		'.$left.';px; top: '.$top.';px;" src="'.$ruta_imagen.'"></a>  <script type="text/javascript">new Draggable("'. $id_objeto .'");</script>' ;
+		echo '<img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; position: relative; z-index: 0; left:
+		'.$left.';px; top: '.$top.';px;" src="'.$ruta_imagen.'"></a>
+		<script>
+		$(function() {
+			 $( "#'.$id_objeto.'" ).draggable(); });
+			 </script>' ;
 		
 }
  
 ?>
-<script type="text/javascript">new Draggable('icono"<?php $id_objeto; ?>"');</script>
 
+<!--  
+	Convertir la siguiente línea en popup con lightbox avisando del guardado de datos 
+	Resultado: <span id="resultado">0</span>
+	 -->
 <?php } else {
 	echo 'Bienvenido <b>Visitante</b><br />
 	Por favor <a href="register.php">reg&iacute;strate</a> o <a href="login.php">logu&eacute;ate</a>';
