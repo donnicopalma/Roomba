@@ -32,8 +32,7 @@ if(isset($_SESSION['user_room'])) {
 <div class="logo_room">
 
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
-<div class="espacio_room" >
-	<div class="caja_room">
+<div id="espacio_room" class="espacio_room" >
 	<?php
 	
 	 while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
@@ -48,7 +47,7 @@ if(isset($_SESSION['user_room'])) {
 			'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
 			<script>
 			$(function() {
-				 $( "#'.$id_objeto.'" ).draggable({ containment: "window" }); });
+				 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
 				 </script>' ;
 			
 	}
@@ -60,7 +59,6 @@ if(isset($_SESSION['user_room'])) {
 		Resultado: <span id="resultado">0</span>
 		 -->
 	
-	</div>
 </div>
 <?php } else {
 	echo 'Bienvenido <b>Visitante</b><br />
