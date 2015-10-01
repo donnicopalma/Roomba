@@ -31,32 +31,37 @@ if(isset($_SESSION['user_room'])) {
 <body class="body_room">
 <div class="logo_room">
 
-<div style="height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
-<?php
-
- while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
-
-		$left = $dato_objeto['left'];
-		$top = $dato_objeto['top'];
-		$objeto1 = $dato_objeto['ruta'];
-		$id_objeto = $dato_objeto['id'];
-		$ruta_imagen= $dato_objeto['ruta'];
-		
-		echo '<img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; position: relative; z-index: 0; left:
-		'.$left.';px; top: '.$top.';px;" src="'.$ruta_imagen.'"></a>
-		<script>
-		$(function() {
-			 $( "#'.$id_objeto.'" ).draggable(); });
-			 </script>' ;
-		
-}
- 
-?>
-
-<!--  
-	Convertir la siguiente línea en popup con lightbox avisando del guardado de datos 
-	Resultado: <span id="resultado">0</span>
-	 -->
+<div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
+<div class="espacio_room" >
+	<div class="caja_room">
+	<?php
+	
+	 while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
+	
+			$left = $dato_objeto['left'];
+			$top = $dato_objeto['top'];
+			$objeto1 = $dato_objeto['ruta'];
+			$id_objeto = $dato_objeto['id'];
+			$ruta_imagen= $dato_objeto['ruta'];
+			
+			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
+			'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
+			<script>
+			$(function() {
+				 $( "#'.$id_objeto.'" ).draggable({ containment: "window" }); });
+				 </script>' ;
+			
+	}
+	 
+	?>
+	
+	<!--  
+		Convertir la siguiente línea en popup con lightbox avisando del guardado de datos 
+		Resultado: <span id="resultado">0</span>
+		 -->
+	
+	</div>
+</div>
 <?php } else {
 	echo 'Bienvenido <b>Visitante</b><br />
 	Por favor <a href="register.php">reg&iacute;strate</a> o <a href="login.php">logu&eacute;ate</a>';

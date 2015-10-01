@@ -18,7 +18,7 @@
 </head>
 <body>
  
-<div id="draggable" class="ui-widget-content">
+<div id="draggable" >
   <p>Drag me around</p>
 </div>
  

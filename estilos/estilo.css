@@ -19,6 +19,21 @@ body {
 	height: 130px;
 }
 
+.espacio_room{
+	margin: 0 auto;height= 300px;
+	width= 800px;
+	background-image: url(../objetos/pieza.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+	background-position: top left;
+}
+
+.caja_room{
+margin: 0 auto;
+	height: 80%;
+}
+
 .Tarjeta1 {
 	font-size: 12px;
 	font-family: Arial;
