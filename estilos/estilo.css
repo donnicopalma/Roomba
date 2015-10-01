@@ -17,8 +17,13 @@ body {
 	background-position: top left;
 	height: 130px;
 }
-
+.nuevo_objeto{
+	position:absolute;
+	top:0;
+	height: 510px;
+}
 .espacio_room{
+	position: relative;
 	text-align:center;
 	vertical-align:top;
 	margin: 0 auto;

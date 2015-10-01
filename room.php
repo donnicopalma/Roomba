@@ -33,8 +33,8 @@ if(isset($_SESSION['user_room'])) {
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
 	 
-	 <div id="newx" style="height: 510px; width: 1000px; position: absolute"><input type="button" id="<?php echo $id_userx; ?>2" onclick="nuevo_elemento(this.id);" value="agregar armario" />
-	 	<input id="<?php echo $id_userx; ?>1" type="button" onclick="nuevo_elemento(this.id);return false;" value="agregar cama" /></div>
+	 <div id="newx" style="height: 510px; width: 1000px; position: absolute"><input type="button" id="<?php echo $id_userx; ?>2" onclick="nuevo_elemento(this.id,this.value);" value="objetos/armario.png" />
+	 	<input id="<?php echo $id_userx; ?>1"  type="button" onclick="nuevo_elemento(this.id,this.value);return false;" value="objetos/cama-1.png" /></div>
 	<?php
 	
 	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
@@ -45,7 +45,7 @@ if(isset($_SESSION['user_room'])) {
 			$id_objeto = $dato_objeto['id'];
 			$ruta_imagen= $dato_objeto['ruta'];
 			
-			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
+			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
 			'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
 			<script>
 			$(function() {
@@ -65,6 +65,8 @@ if(isset($_SESSION['user_room'])) {
 		para crear los nuevos items para el usuario, el id será el resultado del id del usuario
 		más el id del producto. Así, si el id del usuario es 3 y el id del objeto es 35, entonces el id del 
 		objeto para dicho usuairio será el 335.
+		
+		Recordar que los objetos tienen su id asignado manualmente.
 		 -->
 	
 </div>

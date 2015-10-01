@@ -50,13 +50,15 @@ function error(act,txt)
 	if(txt) $('#error').html(txt);
 }
 
-function guardar_posicion(tid, tleft, ttop){
+function guardar_posicion(ttitle, tid, tleft, ttop){
 
         var parametros = {
+        		"ttitle" : ttitle,
                 "tid"	: tid,
                 "tleft" : tleft,
                 "ttop"	: ttop
         };
+        
         $.ajax({
                 data:  parametros,
                 url:   'control/actualiza_posicion.php',
@@ -71,15 +73,17 @@ function guardar_posicion(tid, tleft, ttop){
         
 }
 
-function nuevo_elemento(oid){
-	
+function nuevo_elemento(oid,ovalue){
+
+	var diva = document.createElement("div");
+	diva.id = "elemento"+oid;
+	diva.className = "nuevo_objeto";
 	document.getElementById("espacio_room").appendChild(diva);
-	var odd =("#"+oid);
-	var idd = ("id="+oid+"d");
-	$("#11d").html("<div><img ='11d' onmouseup='guardar_posicion(this.id, this.style.left, this.style.top);return false;'"+
-	"style='position: fixed; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='objetos/armario.png'></a></div>"+
+	
+	$("#elemento"+oid).html("<img id='1"+oid+"' onmouseup='guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;'"+
+	"style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='"+ovalue+"'  title='"+ovalue+"'></a>"+
 	"<script> $(function() {"+
-	"	 $( '#11d' ).draggable({ containment: '#espacio_room' }); });"+
+	"	 $( '#1"+oid+"' ).draggable({ containment: '#espacio_room' }); });"+
 	"</script>");
 
 }
