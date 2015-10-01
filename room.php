@@ -1,5 +1,8 @@
-<meta name="description" content="" />
-<meta name="keywords"    content="" />
+<!DOCTYPE php>
+<html xmlns="http://www.w3.org/1999/xhtml" class="v6 " lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
+
 <?php
 require_once ("control/config.php");
 
@@ -16,10 +19,6 @@ if(isset($_SESSION['user_room'])) {
 	$sql_objetos = mysql_query("SELECT * FROM objeto WHERE id_cuarto = (select id from cuarto where id_user = '$id_userx')");
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
@@ -33,9 +32,12 @@ if(isset($_SESSION['user_room'])) {
 
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
+	 
+	 <div id="newx" style="height: 510px; width: 1000px; position: absolute"><input type="button" id="<?php echo $id_userx; ?>2" onclick="nuevo_elemento(this.id);" value="agregar armario" />
+	 	<input id="<?php echo $id_userx; ?>1" type="button" onclick="nuevo_elemento(this.id);return false;" value="agregar cama" /></div>
 	<?php
 	
-	 while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
+	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
 	
 			$left = $dato_objeto['left'];
 			$top = $dato_objeto['top'];
@@ -55,8 +57,14 @@ if(isset($_SESSION['user_room'])) {
 	?>
 	
 	<!--  
+	Resultado: <span id="resultado">0</span>
+	
 		Convertir la siguiente línea en popup con lightbox avisando del guardado de datos 
 		Resultado: <span id="resultado">0</span>
+		
+		para crear los nuevos items para el usuario, el id será el resultado del id del usuario
+		más el id del producto. Así, si el id del usuario es 3 y el id del objeto es 35, entonces el id del 
+		objeto para dicho usuairio será el 335.
 		 -->
 	
 </div>

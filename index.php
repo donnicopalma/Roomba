@@ -1,4 +1,7 @@
+<!DOCTYPE php>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
 
+<head>
 <?php require_once('control/config.php'); ?>
 <?php
 	define('INCLUDE_CHECK',1);

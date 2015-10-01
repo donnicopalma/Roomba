@@ -1,21 +1,19 @@
-<meta name="description" content="" />
-<meta name="keywords"    content="" />
-<?php
-require_once ("control/config.php");
+<!DOCTYPE php>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
 
-session_start();
-if(isset($_SESSION['user_room'])) {
-	// Se almacenan datos de usuario en array $datos.
-	// La selección de otros datos será en base al uso del campo ID 
-	$user = $_SESSION["user_room"];
-	$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
-	$dato = mysql_fetch_array($sql_data);
-	$this_page = "<a class='Estilo10' href='room.php'>Ir a tu Cuarto</a>";
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<?php
+		require_once ("control/config.php");
+		
+		session_start();
+		if(isset($_SESSION['user_room'])) {
+			// Se almacenan datos de usuario en array $datos.
+			// La selección de otros datos será en base al uso del campo ID 
+			$user = $_SESSION["user_room"];
+			$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
+			$dato = mysql_fetch_array($sql_data);
+			$this_page = "<a class='Estilo10' href='room.php'>Ir a tu Cuarto</a>";
+	?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>

@@ -70,3 +70,16 @@ function guardar_posicion(tid, tleft, ttop){
         });
         
 }
+
+function nuevo_elemento(oid){
+	
+	document.getElementById("espacio_room").appendChild(diva);
+	var odd =("#"+oid);
+	var idd = ("id="+oid+"d");
+	$("#11d").html("<div><img ='11d' onmouseup='guardar_posicion(this.id, this.style.left, this.style.top);return false;'"+
+	"style='position: fixed; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='objetos/armario.png'></a></div>"+
+	"<script> $(function() {"+
+	"	 $( '#11d' ).draggable({ containment: '#espacio_room' }); });"+
+	"</script>");
+
+}

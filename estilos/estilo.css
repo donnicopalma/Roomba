@@ -19,6 +19,8 @@ body {
 }
 
 .espacio_room{
+	text-align:center;
+	vertical-align:top;
 	margin: 0 auto;
 	height: 510px;
 	width: 1000px;
