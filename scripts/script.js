@@ -75,6 +75,24 @@ function guardar_posicion(ttitle, tid, tleft, ttop){
 
 function nuevo_elemento(oid,ovalue){
 
+   var parametros = {
+                "oid" : oid,
+                "pvalue"	: ovalue
+        };
+        
+        $.ajax({
+                data:  parametros,
+                url:   'control/actualiza_posicion.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) {
+                        $("#resultado").html(response);
+                }
+        });
+        
+
 	var diva = document.createElement("div");
 	diva.id = "elemento"+oid;
 	diva.className = "nuevo_objeto";
