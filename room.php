@@ -33,8 +33,9 @@ if(isset($_SESSION['user_room'])) {
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
 	 
-	 <div id="newx" style="height: 510px; width: 1000px; position: absolute"><input type="button" id="<?php echo $id_userx; ?>2" onclick="nuevo_elemento(this.id,this.value);" value="objetos/armario.png" />
-	 	<input id="<?php echo $id_userx; ?>1"  type="button" onclick="nuevo_elemento(this.id,this.value);return false;" value="objetos/cama-1.png" /></div>
+	 <div id="newx" style="height: 510px; width: 1000px; position: absolute">
+	 	<input type="button" id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.value);" value="objetos/armario.png" />
+	 	<input id="<?php echo $id_userx; ?>" type="button" onclick="nuevo_elemento(this.id,this.value);return false;" value="objetos/cama-1.png" /></div>
 	<?php
 	
 	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
@@ -51,13 +52,12 @@ if(isset($_SESSION['user_room'])) {
 			$(function() {
 				 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
 				 </script>' ;
-			
 	}
 	 
 	?>
-	
+	<div id="nuevo_elemento"></div>
 	<!--  
-	Resultado: <span id="resultado">0</span>
+	Resultado: 
 	
 		Convertir la siguiente línea en popup con lightbox avisando del guardado de datos 
 		Resultado: <span id="resultado">0</span>

@@ -77,31 +77,33 @@ function nuevo_elemento(oid,ovalue){
 
    var parametros = {
                 "oid" : oid,
-                "pvalue"	: ovalue
+                "ovalue"	: ovalue
         };
         
         $.ajax({
                 data:  parametros,
-                url:   'control/actualiza_posicion.php',
+                url:   'control/nuevo_objeto.php',
                 type:  'post',
                 beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
+                        $("#resultado").html("Creando nuevo elemento");
                 },
                 success:  function (response) {
-                        $("#resultado").html(response);
+                
+				var random = Math.floor((Math.random() * 100000) + 1);
+                var diva = document.createElement("div");
+				diva.id = "elemento"+random;
+				document.getElementById("espacio_room").appendChild(diva);
+                $("#elemento"+random).html(response);
                 }
         });
-        
 
+/*
 	var diva = document.createElement("div");
 	diva.id = "elemento"+oid;
 	diva.className = "nuevo_objeto";
 	document.getElementById("espacio_room").appendChild(diva);
-	
 	$("#elemento"+oid).html("<img id='1"+oid+"' onmouseup='guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;'"+
 	"style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='"+ovalue+"'  title='"+ovalue+"'></a>"+
-	"<script> $(function() {"+
-	"	 $( '#1"+oid+"' ).draggable({ containment: '#espacio_room' }); });"+
-	"</script>");
-
+	"<script> $(function() { $( '#1"+oid+"' ).draggable({ containment: '#espacio_room' }); }); </script>");
+*/
 }
