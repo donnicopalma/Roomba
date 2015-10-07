@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-09-2015 a las 05:23:16
+-- Tiempo de generación: 08-10-2015 a las 00:20:06
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -53,7 +53,15 @@ CREATE TABLE IF NOT EXISTS `cuarto` (
   `color` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `cuarto`
+--
+
+INSERT INTO `cuarto` (`id`, `id_user`, `contador_visitas`, `alto`, `largo`, `ancho`, `luces`, `color_luces`, `color`) VALUES
+(1, 1, 0, 20, 20, 20, 20, 20, '20'),
+(2, 2, 2112, 1212, 2121, 212121, 21, 12, '12');
 
 -- --------------------------------------------------------
 
@@ -65,14 +73,15 @@ CREATE TABLE IF NOT EXISTS `familia_objetos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `familia_objetos`
 --
 
 INSERT INTO `familia_objetos` (`id`, `nombre`) VALUES
-(1, 'camas');
+(1, 'camas'),
+(2, 'armarios');
 
 -- --------------------------------------------------------
 
@@ -99,21 +108,31 @@ CREATE TABLE IF NOT EXISTS `objeto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_cuarto` int(11) DEFAULT NULL,
   `id_tipo_objeto` int(11) DEFAULT NULL,
+  `ruta` varchar(100) NOT NULL,
+  `z-index` int(10) NOT NULL,
   `alto` int(4) DEFAULT NULL,
   `ancho` int(4) NOT NULL,
   `left` int(5) DEFAULT NULL,
   `top` int(5) DEFAULT NULL,
+  `new` int(1) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_tipo_objeto` (`id_tipo_objeto`),
+  KEY `id_tipo_objeto` (`id_tipo_objeto`),
   KEY `id_cuarto` (`id_cuarto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
 
 --
 -- Volcado de datos para la tabla `objeto`
 --
 
-INSERT INTO `objeto` (`id`, `id_cuarto`, `id_tipo_objeto`, `alto`, `ancho`, `left`, `top`) VALUES
-(1, 1, 1, 10, 10, 150, 680);
+INSERT INTO `objeto` (`id`, `id_cuarto`, `id_tipo_objeto`, `ruta`, `z-index`, `alto`, `ancho`, `left`, `top`, `new`) VALUES
+(115, 1, 2, 'objetos/armario.png', 0, 0, 0, -247, 195, 0),
+(116, 1, 2, 'objetos/armario.png', 0, 0, 0, 316, 82, 0),
+(117, 1, 2, 'objetos/cama-1.png', 0, 0, 0, -15, 13, 0),
+(118, 1, 2, 'objetos/armario.png', 0, 0, 0, 5, -351, 0),
+(119, 2, 2, 'objetos/armario.png', 0, 0, 0, -386, 331, 0),
+(120, 2, 2, 'objetos/cama-1.png', 0, 0, 0, -165, 154, 0),
+(121, 2, 2, 'objetos/armario.png', 0, 0, 0, 34, -49, 0),
+(122, 2, 2, 'objetos/cama-1.png', 0, 0, 0, 239, -118, 0);
 
 -- --------------------------------------------------------
 
@@ -142,14 +161,15 @@ CREATE TABLE IF NOT EXISTS `tipo_objeto` (
   `modelo` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_familia` (`id_familia`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `tipo_objeto`
 --
 
 INSERT INTO `tipo_objeto` (`id`, `id_familia`, `nombre`, `marca`, `modelo`) VALUES
-(1, 1, 'primera cama', 'Rosen', 'vaquita');
+(1, 1, 'primera cama', 'Rosen', 'vaquita'),
+(2, 2, 'armario', 'ikea', 'fiorenci');
 
 -- --------------------------------------------------------
 
@@ -176,43 +196,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`ID`, `nombre`, `apellidos`, `contrasena`, `mail`, `sexo`, `fecha_nac`, `fecha_registro`, `dinero`) VALUES
 (1, 'Nicolás', 'Palma Silva', '123456', 'nico', 1, '1987-05-25', '2015-09-16', 99999),
-(2, 'Luis', 'Guajardo', '123456', 'luchiani@gmail.com', 0, '1991-03-08', '2015-08-24', 9999999),
+(2, 'Luis', 'Guajardo', '123456', 'luis', 0, '1991-03-08', '2015-08-24', 9999999),
 (29, 'lucho', 'guajardo figueroa', '123546', 'luchiani@hotmail.com', 1, '2010-05-05', '2015-09-23', 99999);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `pass` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `fotoB` varchar(250) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `apellidos` varchar(255) NOT NULL,
-  `fecha_nac` varchar(255) NOT NULL,
-  `ocup` varchar(255) NOT NULL,
-  `ocup_s` varchar(255) NOT NULL,
-  `pais` varchar(255) NOT NULL,
-  `region` varchar(255) NOT NULL,
-  `sexo` varchar(255) NOT NULL,
-  `zipcode` varchar(255) NOT NULL,
-  `nivel` int(4) NOT NULL,
-  `fecha_registro` varchar(255) NOT NULL,
-  `hora_registro` varchar(255) NOT NULL,
-  `IP` tinytext NOT NULL,
-  KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `pass`, `user`, `foto`, `fotoB`, `nombre`, `apellidos`, `fecha_nac`, `ocup`, `ocup_s`, `pais`, `region`, `sexo`, `zipcode`, `nivel`, `fecha_registro`, `hora_registro`, `IP`) VALUES
-(1, '1234', 'nico', 'nicolas/new2.png', 'nicolas/new.png', 'nico', 'palma', '', '', '', '', '', 'm', '', 1, '', '', '');
 
 --
 -- Restricciones para tablas volcadas
@@ -230,8 +215,7 @@ ALTER TABLE `amigo`
 -- Filtros para la tabla `cuarto`
 --
 ALTER TABLE `cuarto`
-  ADD CONSTRAINT `cuarto_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`ID`),
-  ADD CONSTRAINT `cuarto_ibfk_2` FOREIGN KEY (`id`) REFERENCES `objeto` (`id_cuarto`);
+  ADD CONSTRAINT `cuarto_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`ID`);
 
 --
 -- Filtros para la tabla `imagenes`
@@ -243,7 +227,7 @@ ALTER TABLE `imagenes`
 -- Filtros para la tabla `objeto`
 --
 ALTER TABLE `objeto`
-  ADD CONSTRAINT `objeto_ibfk_2` FOREIGN KEY (`id_tipo_objeto`) REFERENCES `tipo_objeto` (`id`);
+  ADD CONSTRAINT `objeto_ibfk_1` FOREIGN KEY (`id_tipo_objeto`) REFERENCES `tipo_objeto` (`id`);
 
 --
 -- Filtros para la tabla `tipo_objeto`
