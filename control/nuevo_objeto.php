@@ -21,7 +21,7 @@
 			$ruta = $datox['ruta'];
 			
 			echo "<img id='$new_id' onmouseup='guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;'
-			style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:100px; top: 0px;'
+			style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:0; top: 0px;'
 				 src='$ruta'></a>
 				 <script> $(function() { $( '#$new_id' ).draggable({ containment: '#espacio_room' }); });</script>";
 			

@@ -26,6 +26,20 @@ if(isset($_SESSION['user_room'])) {
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="scripts/script.js"></script>
 
+<script>
+//sube_z sube el z-index del objeto al que se hace click
+	function sube_z(id_obj,z_in) {
+		if(z_in<4){		
+			var z_new = z_in+1;
+		    document.getElementById(id_obj).style.zIndex = z_new;
+	    } else {
+	    	alert ("no puedes subir más este objeto");
+	    	
+	    }	    
+	}
+</script>
+
+
 </head>
 <body class="body_room">
 <div class="logo_room">
@@ -46,12 +60,14 @@ if(isset($_SESSION['user_room'])) {
 			$id_objeto = $dato_objeto['id'];
 			$ruta_imagen= $dato_objeto['ruta'];
 			
-			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
-			'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
-			<script>
-			$(function() {
-				 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
-				 </script>' ;
+			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" 
+                onmousedown="sube_z(this.id, this.style.zIndex);"
+				style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
+				'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
+				<script>
+				$(function() {
+					 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
+					 </script>' ;
 	}
 	 
 	?>
