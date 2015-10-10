@@ -13,8 +13,6 @@ body {
 
 .objeto{
 	cursor: move;
-	height: 30%;
-	width: 30%;
 	background-size: contain;
 	background-repeat: no-repeat;
 	text-align: left;

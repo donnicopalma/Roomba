@@ -48,6 +48,37 @@ if(isset($_SESSION['user_room'])) {
 	    	
 	    }  
 	}
+	
+	function baja_z(id_obj) {
+		var z_in = document.getElementById(id_obj).style.zIndex;
+		if(z_in>0){
+			var z_new = parseInt(z_in)-parseInt('1');
+		    document.getElementById(id_obj).style.zIndex = z_new;
+	    } else {
+	    	alert ("No puedes bajar más este objeto");
+	    	
+	    }  
+	}
+	
+	function zoom_in(id_obj) {
+		var z_inw = document.getElementById(id_obj).style.width;
+			var new_w = parseInt(z_inw)+parseInt('5');
+			var new_w1 = new_w+"%";
+			
+		var z_inh = document.getElementById(id_obj).style.height;
+			var new_h = parseInt(z_inh)+parseInt('5');
+			var new_h1 = new_h+"%";
+		    document.getElementById(id_obj).style.width = new_w1;
+		    document.getElementById(id_obj).style.height = new_h1;
+	}  
+	
+	function zoom_out(id_obj) {
+		var z_in = document.getElementById(id_obj).style.width;
+			var new_w = parseInt(z_in)-parseInt('15');
+		    document.getElementById(id_obj).style.width = new_w;
+		    document.getElementById(id_obj).style.height = new_h;
+	}
+
 </script>
 
 
@@ -73,7 +104,12 @@ if(isset($_SESSION['user_room'])) {
 			
 			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
 			//el script posterior convierte al div en draggable
-			echo '<div id="'. $id_objeto .'" class="objeto" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; background-image: url('.$ruta_imagen.');"> <img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"><img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></div></div>
+			echo '<div id="'. $id_objeto .'" class="objeto" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; height: 70%; width: 70%; background-image: url('.$ruta_imagen.');">
+			<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
+			<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
+			<img id="menu_objeto" src="img/zoom_in.png" onmousedown="zoom_in('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
+			<img id="menu_objeto" src="img/zoom_out.png" onmousedown="zoom_out('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
+			</div>
 				<script>
 				$(function() {
 					 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
