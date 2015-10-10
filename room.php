@@ -28,14 +28,25 @@ if(isset($_SESSION['user_room'])) {
 
 <script>
 //sube_z sube el z-index del objeto al que se hace click
-	function sube_z(id_obj,z_in) {
-		if(z_in<4){		
-			var z_new = z_in+1;
+	function sube_z(id_obj) {
+		var z_in = document.getElementById(id_obj).style.zIndex;
+		if(z_in<4){
+			var z_new = parseInt(z_in)+parseInt('1');
 		    document.getElementById(id_obj).style.zIndex = z_new;
 	    } else {
-	    	alert ("no puedes subir más este objeto");
+	    	alert ("No puedes subir más este objeto");
 	    	
-	    }	    
+	    }  
+	}
+	function baja_z(id_obj) {
+		var z_in = document.getElementById(id_obj).style.zIndex;
+		if(z_in>0){
+			var z_new = parseInt(z_in)-parseInt('1');
+		    document.getElementById(id_obj).style.zIndex = z_new;
+	    } else {
+	    	alert ("No puedes bajar más este objeto");
+	    	
+	    }  
 	}
 </script>
 
@@ -47,11 +58,11 @@ if(isset($_SESSION['user_room'])) {
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
 	 
-	 <div id="newx" style="height: 510px; width: 1000px; position: absolute">
+	 <div id="newx" style="height: 510px; width: 1000px; position: absolute;">
 	 	<input type="button" id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.value);" value="objetos/armario.png" />
 	 	<input id="<?php echo $id_userx; ?>" type="button" onclick="nuevo_elemento(this.id,this.value);return false;" value="objetos/cama-1.png" /></div>
 	<?php
-	
+	//ciclo que carga los datos de los objeto y los imprime a través de un echo
 	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
 	
 			$left = $dato_objeto['left'];
@@ -60,10 +71,9 @@ if(isset($_SESSION['user_room'])) {
 			$id_objeto = $dato_objeto['id'];
 			$ruta_imagen= $dato_objeto['ruta'];
 			
-			echo '<div><img id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" 
-                onmousedown="sube_z(this.id, this.style.zIndex);"
-				style="cursor: move; border: 0px none; height: 30%; z-index: 0; left:
-				'.$left.'; top: '.$top.';" src="'.$ruta_imagen.'"></a></div>
+			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
+			//el script posterior convierte al div en draggable
+			echo '<div id="'. $id_objeto .'" class="objeto" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; background-image: url('.$ruta_imagen.');"> <img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"><img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></div></div>
 				<script>
 				$(function() {
 					 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
