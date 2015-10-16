@@ -22,6 +22,7 @@ if(isset($_SESSION['user_room'])) {
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="scripts/script.js"></script>
@@ -111,15 +112,14 @@ if(isset($_SESSION['user_room'])) {
 			
 			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
 			//el script posterior convierte al div en draggable
-			echo '<div id="'. $id_objeto .'" class="objeto" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; height: 170px; width: 90px; background-image: url('.$ruta_imagen.');">
+			echo '<div class="objeto ui-widget-resizable" id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; height: 170px; width: 90px; background-image: url('.$ruta_imagen.');">
 			<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
-			<img id="menu_objeto" src="img/zoom_in.png" onmousedown="zoom_in('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
-			<img id="menu_objeto" src="img/zoom_out.png" onmousedown="zoom_out('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			</div>
 				<script>
 				$(function() {
-					 $( "#'.$id_objeto.'" ).draggable({ containment: "#espacio_room" }); });
+					$( "#'.$id_objeto.'" ).draggable({autoscroll: false, containment: "#espacio_room" }).resizable();; 
+				});
 					 </script>' ;
 	}
 	 

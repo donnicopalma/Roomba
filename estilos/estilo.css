@@ -16,6 +16,8 @@ body {
 	background-size: contain;
 	background-repeat: no-repeat;
 	text-align: left;
+	padding-bottom: 10px;
+	position: absolute !important;
 }
 
 #menu_objeto{
@@ -41,6 +43,8 @@ body {
 	margin: 0 auto;
 	height: 510px;
 	width: 1000px;
+	max-height: 510px;
+	max-width: 1000px;
 	background-position: center;
 	background-image: url(../objetos/pieza.jpg);
 	background-repeat: no-repeat;
