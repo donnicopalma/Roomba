@@ -20,10 +20,16 @@
 			$new_id = $datox['id'];
 			$ruta = $datox['ruta'];
 			
-			echo "<img id='$new_id' onmouseup='guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;'
-			style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:0; top: 0px;'
-				 src='$ruta'></a>
-				 <script> $(function() { $( '#$new_id' ).draggable({ containment: '#espacio_room' }); });</script>";
+			echo '<div class="objeto ui-widget-resizable" id="'. $new_id .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top, this.style.height, this.style.width, this.style.zIndex);return false;" style="z-index: 0; left: 0; top: 0; height: 170px; width: 90px; background-image: url('.$ruta.');">
+				<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $new_id .');" style="z-index:5; cursor: auto;"></br>
+				<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $new_id .');" style="z-index:5; cursor: auto;"></br>
+				</div>
+				<script>
+					$(function() {
+						$( "#'.$new_id.'" ).draggable({autoscroll: false, containment: "#espacio_room" }).resizable();; 
+					});
+				</script>';
+				
 			
 		} else {
 		

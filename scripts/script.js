@@ -50,13 +50,15 @@ function error(act,txt)
 	if(txt) $('#error').html(txt);
 }
 
-function guardar_posicion(ttitle, tid, tleft, ttop){
+function guardar_posicion(tid, tleft, ttop, talto, tancho, tzindex){
 
         var parametros = {
-        		"ttitle" : ttitle,
                 "tid"	: tid,
                 "tleft" : tleft,
-                "ttop"	: ttop
+                "ttop"	: ttop,
+                "talto"	: talto,
+                "tancho": tancho,
+                "tzindex": tzindex
         };
         
         $.ajax({
@@ -106,4 +108,6 @@ function nuevo_elemento(oid,ovalue){
 	"style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='"+ovalue+"'  title='"+ovalue+"'></a>"+
 	"<script> $(function() { $( '#1"+oid+"' ).draggable({ containment: '#espacio_room' }); }); </script>");
 */
+
 }
+

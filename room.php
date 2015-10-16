@@ -49,43 +49,6 @@ if(isset($_SESSION['user_room'])) {
 	    	
 	    }  
 	}
-	
-	function baja_z(id_obj) {
-		var z_in = document.getElementById(id_obj).style.zIndex;
-		if(z_in>0){
-			var z_new = parseInt(z_in)-parseInt('1');
-		    document.getElementById(id_obj).style.zIndex = z_new;
-	    } else {
-	    	alert ("No puedes bajar más este objeto");
-	    	
-	    }  
-	}
-	
-	function zoom_in(id_obj) {
-		var z_inw = document.getElementById(id_obj).style.width;
-			var new_w = parseInt(z_inw)+parseInt('10');
-			var new_w1 = new_w+"px";
-			
-		var z_inh = document.getElementById(id_obj).style.height;
-			var new_h = parseInt(z_inh)+parseInt('10');
-			var new_h1 = new_h+"px";
-			
-		    document.getElementById(id_obj).style.width = new_w1;
-		    //document.getElementById(id_obj).style.height = new_h1;
-	}  
-	
-	function zoom_out(id_obj) {
-		var z_ouw = document.getElementById(id_obj).style.width;
-		var new_w = parseInt(z_ouw)-parseInt('10');
-		var new_w1 = new_w+"px";
-			
-		var z_ouh = document.getElementById(id_obj).style.height;
-		var new_h = parseInt(z_ouh)-parseInt('10');
-		var new_h1 = new_h+"px";
-		
-		document.getElementById(id_obj).style.width = new_w;
-		//document.getElementById(id_obj).style.height = new_h;
-	}
 
 </script>
 
@@ -104,15 +67,18 @@ if(isset($_SESSION['user_room'])) {
 	//ciclo que carga los datos de los objeto y los imprime a través de un echo
 	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
 	
+			$alto = $dato_objeto['alto'];
+			$ancho = $dato_objeto['ancho'];
 			$left = $dato_objeto['left'];
 			$top = $dato_objeto['top'];
 			$objeto1 = $dato_objeto['ruta'];
 			$id_objeto = $dato_objeto['id'];
 			$ruta_imagen= $dato_objeto['ruta'];
+			$zindex = $dato_objeto['z-index'];
 			
 			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
 			//el script posterior convierte al div en draggable
-			echo '<div class="objeto ui-widget-resizable" id="'. $id_objeto .'" onmouseup="guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;" style="z-index: 0; left:'.$left.'; top: '.$top.'; height: 170px; width: 90px; background-image: url('.$ruta_imagen.');">
+			echo '<div class="objeto ui-widget-resizable" id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top, this.style.height, this.style.width, this.style.zIndex);return false;" style="z-index: '. $zindex .'; left:'.$left.'; top: '.$top.'; height: '. $alto .'; width: '. $ancho .'; background-image: url('.$ruta_imagen.');">
 			<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			</div>
