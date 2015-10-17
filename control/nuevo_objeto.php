@@ -23,6 +23,7 @@
 			echo '<div class="objeto ui-widget-resizable" id="'. $new_id .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top, this.style.height, this.style.width, this.style.zIndex);return false;" style="z-index: 0; left: 0; top: 0; height: 170px; width: 90px; background-image: url('.$ruta.');">
 				<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $new_id .');" style="z-index:5; cursor: auto;"></br>
 				<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $new_id .');" style="z-index:5; cursor: auto;"></br>
+				<img id="menu_objeto" src="img/delete.png" onmouseup="elimina_elemento('. $new_id .');" style="z-index:5; cursor: auto;"></br>
 				</div>
 				<script>
 					$(function() {

@@ -99,15 +99,50 @@ function nuevo_elemento(oid,ovalue){
                 }
         });
 
-/*
-	var diva = document.createElement("div");
-	diva.id = "elemento"+oid;
-	diva.className = "nuevo_objeto";
-	document.getElementById("espacio_room").appendChild(diva);
-	$("#elemento"+oid).html("<img id='1"+oid+"' onmouseup='guardar_posicion(this.title, this.id, this.style.left, this.style.top);return false;'"+
-	"style='position: absolute; cursor: move; border: 0px none; height: 30%; z-index: 0; left:'100px'; top: '0px';' src='"+ovalue+"'  title='"+ovalue+"'></a>"+
-	"<script> $(function() { $( '#1"+oid+"' ).draggable({ containment: '#espacio_room' }); }); </script>");
-*/
+}
+
+function elimina_elemento(oid){
+
+   var parametros = {
+                "oid"	: oid
+        };
+        
+        $.ajax({
+                data:  parametros,
+                url:   'control/elimina_objeto.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Creando nuevo elemento");
+                },
+                success:  function (response) {
+                
+                $("#"+oid).remove();
+                }
+        });
 
 }
+
+$(function(){
+    $('.slider').click(function () { 
+        $('#nav').slideToggle(300);
+
+        var img = $(this).find('img');
+        if ($(img).attr('id') == 'bot') {
+            $(img).attr('src', 'img/arrow_bottom.png');
+            $(img).attr('id', 'top');
+        } else {
+            $(img).attr('src', 'img/arrow_top.png');
+            $(img).attr('id', 'bot');
+        }
+    });
+
+    $('.sub').click(function () { 
+        var cur = $(this).prev();
+        $('#nav li ul').each(function() {
+            if ($(this)[0] != $(cur)[0])
+                $(this).slideUp(300);
+        });
+        $(cur).slideToggle(300);
+    });
+});
 

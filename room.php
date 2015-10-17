@@ -22,6 +22,9 @@ if(isset($_SESSION['user_room'])) {
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
 
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="estilos/layout.css" type="text/css" media="screen">
+<link rel="stylesheet" href="estilos/menu_room.css" type="text/css" media="screen">
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -60,9 +63,6 @@ if(isset($_SESSION['user_room'])) {
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
 	 
-	 <div id="newx" style="height: 510px; width: 1000px; position: absolute;">
-	 	<input type="button" id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.value);" value="objetos/armario.png" />
-	 	<input id="<?php echo $id_userx; ?>" type="button" onclick="nuevo_elemento(this.id,this.value);return false;" value="objetos/cama-1.png" /></div>
 	<?php
 	//ciclo que carga los datos de los objeto y los imprime a través de un echo
 	while ($dato_objeto = mysql_fetch_assoc($sql_objetos)) {
@@ -81,6 +81,7 @@ if(isset($_SESSION['user_room'])) {
 			echo '<div class="objeto ui-widget-resizable" id="'. $id_objeto .'" onmouseup="guardar_posicion(this.id, this.style.left, this.style.top, this.style.height, this.style.width, this.style.zIndex);return false;" style="z-index: '. $zindex .'; left:'.$left.'; top: '.$top.'; height: '. $alto .'; width: '. $ancho .'; background-image: url('.$ruta_imagen.');">
 			<img id="menu_objeto" src="img/flecha_arriba.png" onmouseup="sube_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			<img id="menu_objeto" src="img/flecha_abajo.png" onmouseup="baja_z('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
+			<img id="menu_objeto" src="img/delete.png" onmouseup="elimina_elemento('. $id_objeto .');" style="z-index:5; cursor: auto;"></br>
 			</div>
 				<script>
 				$(function() {
@@ -91,6 +92,30 @@ if(isset($_SESSION['user_room'])) {
 	 
 	?>
 	<div id="nuevo_elemento"></div>
+	
+	<!-- Menú de opciones y objetos -->
+	<div class="menuContent">
+            <a class="slider"><img alt="" id="bot" src="img/arrow_top.png"></a>
+            <ul id="nav">
+                <li>
+                    <ul id="1">
+                        <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/cama-1.png"><img src="img/t2.png" />Cama 1</li>
+                        <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/cama-2.png"><img src="img/t2.png" />Cama 2</li>
+                        <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/armario.png"><img src="img/arm.png" />Armario 1</li>
+                        <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/armario_full.png"><img src="img/arm.png" />Armario 2</li>
+                    </ul>
+                    <a href="#" class="sub" tabindex="1"><img src="img/t2.png" />HTML/CSS</a>
+                </li>
+                <li>
+                    <ul id="2">
+						<li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/tele_sony1.png"><img src="img/tv.png" />TV Sony</li>
+                        <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/radio_sony.png"><img src="img/radio.png" />Radio Sony</li>
+                    </ul>
+                    <a href="#" class="sub" tabindex="1"><img src="img/t3.png" />Electro</a>
+                </li>
+            </ul>
+        </div>
+
 	<!--  
 	Resultado: 
 	
