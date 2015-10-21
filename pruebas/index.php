@@ -21,7 +21,7 @@
 			
 			$mygallery = new gallery();
 			$mygallery->loadFolder('galley_images');
-			$mygallery->show(700, 60, 10);
+			$mygallery->show(500, 60, 10);
 		
 		?>
     

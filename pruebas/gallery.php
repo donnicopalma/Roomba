@@ -42,8 +42,8 @@ class gallery {
 		//---Crear la galería con los nombres de todos los archivos
 		$total = count($this->files);
 		$cont = 0;
-		
-		echo '<div name="xx" style="width:'.$area.'px">';
+		$ancho = 70*$total;
+		echo '<div name="xx" style="width:'.$area.'px; overflow:auto;"> <div style="width:'.$ancho.'px;">';
 		
 			//---Situar los thumbnails
 			for($i = 0; $i < $total; $i++){		
@@ -66,7 +66,7 @@ class gallery {
         
        		<?php
 		
-		echo '</div>';
+		echo '</div></div>';
 	
 	}
 
