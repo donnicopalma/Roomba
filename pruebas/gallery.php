@@ -36,7 +36,7 @@ class gallery {
 		sort($this->files);
 	
 	}
-	
+		
 	function show($area = 500, $width = 100, $space = 10){
 	
 		//---Crear la galería con los nombres de todos los archivos
