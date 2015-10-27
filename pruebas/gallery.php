@@ -52,20 +52,6 @@ class gallery {
 				
 			}
 			
-			?>
-        
-			<script language="javascript">
-    
-                $(document).ready(function(){
-                   
-                    $("a[rel = 'lightbox']").lightBox();					   
-                                           
-                });
-    
-            </script>
-        
-       		<?php
-		
 		echo '</div></div>';
 	
 	}

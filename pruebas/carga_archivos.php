@@ -37,7 +37,7 @@ class gallery {
 	
 	}
 		
-	function show(){
+	function save(){
 	
 		//---Crear la galería con los nombres de todos los archivos
 		$total = count($this->files);
@@ -46,8 +46,15 @@ class gallery {
 			//---Situar los thumbnails
 			for($i = 0; $i < $total; $i++){		
 				
-				echo $this->path.'/'.$this->files[$i];
-				
+				$lame = $this->path.'/'.$this->files[$i];
+				$saver = $this->path.'/thumb/'.$this->files[$i];
+				//echo $saver."<br>";
+				//echo $lame."<br>";
+				$thumb = new thumbnail($lame);
+				$thumb->size_height(250);
+				$thumb->jpeg_quality(80);
+				$thumb->save($saver);
+			
 			}
 			
 	}

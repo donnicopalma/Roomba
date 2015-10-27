@@ -4,11 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PHP Gallery Example</title>
 
-<link href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
-
-<script src="scripts/jquery-1.3.2.js" language="javascript"></script>
-<script src="scripts/jquery.lightbox-0.5.js" language="javascript"></script>
-
 </head>
 
 <body>
