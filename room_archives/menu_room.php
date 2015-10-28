@@ -1,5 +1,5 @@
 <div class="menuContent">
-    <a class="slider"><img alt="" id="bot" src="img/arrow_top.png"></a>
+    <a class="slider"><img alt="" id="bot" src="img/arrow_bottom.png"></a>
     <ul id="nav">
         <li>
             <ul id="1">

@@ -122,13 +122,14 @@ function elimina_elemento(oid){
 
 }
 
+//  FUINCION PARA EL MENU (SUBE Y BAJA)
 $(function(){
     $('.slider').click(function () { 
         $('#nav').slideToggle(300);
 
         var img = $(this).find('img');
         if ($(img).attr('id') == 'bot') {
-            $(img).attr('src', 'img/arrow_bottom.png');
+            $(img).attr('src', 'img/arrow_top.png');
             $(img).attr('id', 'top');
         } else {
             $(img).attr('src', 'img/arrow_top.png');

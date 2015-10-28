@@ -49,7 +49,7 @@
 
 #nav {
     list-style: none;
-    display: none;
+    display: block;
 }
 
 #nav li {
