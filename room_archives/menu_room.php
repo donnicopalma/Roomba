@@ -3,10 +3,11 @@
     <ul id="nav">
         <li>
             <ul id="1">
-                <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/cama-1.png"><img src="img/t2.png" /></li>
-                <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/cama-2.png"><img src="img/t2.png" /></li>
-                <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/armario.png"><img src="img/arm.png" />Armario 1</li>
-                <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/armario_full.png"><img src="img/arm.png" />Armario 2</li>
+                	<?php
+						$mygallery = new gallery();
+						$mygallery->loadFolder('objetos/muebles');
+						$mygallery->show(400, 60, 10);
+					?>
             </ul>
             <a href="#" class="sub" tabindex="1"><img src="img/t2.png" />HTML/CSS</a>
         </li>

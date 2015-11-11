@@ -5,6 +5,7 @@
 
 <?php
 require_once ("control/config.php");
+include_once("room_archives/gallery.php");
 
 session_start();
 if(isset($_SESSION['user_room'])) {

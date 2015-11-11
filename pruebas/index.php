@@ -17,6 +17,10 @@
 			$mygallery = new gallery();
 			$mygallery->loadFolder('galley_images');
 			$mygallery->show(500, 60, 10);
+			
+			$mygallery2 = new gallery();
+			$mygallery2->loadFolder('galley_images');
+			$mygallery2->show(500, 60, 10);
 		
 		?>
     
