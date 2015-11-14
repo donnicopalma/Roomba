@@ -37,18 +37,19 @@ class gallery {
 	
 	}
 		
-	function show($area = 500, $width = 100, $space = 10){
-	
+	function show($width = 200, $space = 10){
+	global $id_userx;
 		//---Crear la galería con los nombres de todos los archivos
 		$total = count($this->files);
 		$cont = 0;
-		$ancho = 70*$total;
-		echo '<div name="xx" style="width:'.$area.'px; overflow:auto;"> <div style="width:'.$ancho.'px;">';
+		$ancho = 250;
+		$area = 70*$total;
+		echo '<div name="xx" style="width:'.$ancho.'px;"> <div style="height:'.$area.'px; overflow:auto;">';
 		
 			//---Situar los thumbnails
-			for($i = 0; $i < $total; $i++){		
-				
-				echo '<div style="width:'.$width.'px; float:left; padding-right:'.$space.'px; padding-bottom:'.$space.'px;"><a href="'.$this->path.'/'.$this->files[$i].'" rel="lightbox"><img src="'.$this->path.'/thumb/'.$this->files[$i].'" width="'.$width.'" height="'.$width.'" border="0"></img></a></div>';
+			for($i = 0; $i < $total; $i++){			
+				$nombre = $this->files[$i];
+				echo '<div class="menu_objetos_pieza" id="'.$id_userx.'" onclick="nuevo_elemento(this.id,this.title);" title="'.$this->path.'/'.$nombre.'" style="padding-right:'.$space.'px; padding-bottom:'.$space.'px;"><img src="'.$this->path.'/thumb/'.$nombre.'" width="'.$width.'" height="'.$width.'" border="0"></img> '.$this->files[$i].'</div>';
 				
 			}
 			

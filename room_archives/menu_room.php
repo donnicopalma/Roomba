@@ -6,15 +6,18 @@
                 	<?php
 						$mygallery = new gallery();
 						$mygallery->loadFolder('objetos/muebles');
-						$mygallery->show(400, 60, 10);
+						$mygallery->show(70, 10);
 					?>
             </ul>
-            <a href="#" class="sub" tabindex="1"><img src="img/t2.png" />HTML/CSS</a>
+            <a href="#" class="sub" tabindex="1"><img src="img/t2.png" />Muebles</a>
         </li>
         <li>
             <ul id="2">
-				<li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/tele_sony1.png"><img src="img/tv.png" />TV Sony</li>
-                <li id="<?php echo $id_userx; ?>" onclick="nuevo_elemento(this.id,this.title);" title="objetos/radio_sony.png"><img src="img/radio.png" />Radio Sony</li>
+					<?php
+						$mygallery = new gallery();
+						$mygallery->loadFolder('objetos/electronica/televisores');
+						$mygallery->show(70, 10);
+					?>
             </ul>
             <a href="#" class="sub" tabindex="1"><img src="img/t3.png" />Electro</a>
         </li>

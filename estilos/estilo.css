@@ -4,6 +4,7 @@ body {
 	background-repeat: no-repeat;
 }
 
+
 .body_room{
 	background-image: url(../imagenes_index/sombra_top.png);
 	background-position: top;
@@ -24,7 +25,9 @@ body {
 	width: 20px;
 	height: 20px;
 }
-
+.menu_objetos_pieza{
+	text-align:left;
+}
 .logo_room{
 	background-image: url(../imagenes_index/logo_cuarto.png);
 	background-repeat: no-repeat;
