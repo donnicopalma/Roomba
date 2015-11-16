@@ -12,7 +12,8 @@
 			$user = $_SESSION["user_room"];
 			$sql_data = mysql_query("SELECT * FROM user WHERE mail = '$user'");
 			$dato = mysql_fetch_array($sql_data);
-			$this_page = "<a class='Estilo10' href='room.php'>Ir a tu Cuarto</a>";
+			$other_page = "<a class='Estilo10' href='view_room.php'>Ver mi Roomba</a>";
+			$other_page2 = "<a class='Estilo10' href='edit_room.php'>Editar mi Roomba</a>";
 	?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>

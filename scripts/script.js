@@ -132,7 +132,7 @@ $(function(){
             $(img).attr('src', 'img/arrow_top.png');
             $(img).attr('id', 'top');
         } else {
-            $(img).attr('src', 'img/arrow_top.png');
+            $(img).attr('src', 'img/arrow_bottom.png');
             $(img).attr('id', 'bot');
         }
     });
@@ -146,4 +146,3 @@ $(function(){
         $(cur).slideToggle(300);
     });
 });
-
