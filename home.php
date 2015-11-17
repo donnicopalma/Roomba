@@ -678,8 +678,33 @@ body {
     <td rowspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
       <tr>
-        <td width="427" height="814">&nbsp;</td>
-        </tr>
+      <div class="desplegable_home">
+      	
+	      	<div class="cont_desplegable_home">
+		      	<?php
+		      		echo '<img src="usuarios/'.$dato['mail'].'/room.png" style="width: 419px;"/>';
+		      	?>
+	      	</div>
+      	</div>
+      <div class="desplegable_home">
+      	
+	      	<div class="cont_desplegable_home">
+		    
+	      	</div>
+      	</div>
+      <div class="desplegable_home">
+      	
+	      	<div class="cont_desplegable_home">
+		    
+	      	</div>
+      	</div>
+      <div class="desplegable_home">
+      	
+	      	<div class="cont_desplegable_home">
+		    
+	      	</div>
+      	</div>
+      </tr>
       </table></td>
   </tr>
   

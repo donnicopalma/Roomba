@@ -5,7 +5,7 @@
 	
 	
 	if ($data !== false) {
-		file_put_contents('../usuarios/'.$usr.'/image.png', base64_decode($data));
+		file_put_contents('../usuarios/'.$usr.'/room.png', base64_decode($data));
 		} else {
 		    echo 'Un error ocurrio al convertir la imagen.';
 	}
