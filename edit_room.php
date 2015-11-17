@@ -32,39 +32,10 @@ if(isset($_SESSION['user_room'])) {
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="scripts/script.js"></script> 
 
-<script>
-//sube_z sube el z-index del objeto al que se hace click
-	function sube_z(id_obj) {
-		var z_in = document.getElementById(id_obj).style.zIndex;
-		if(z_in<4){
-			var z_new = parseInt(z_in)+parseInt('1');
-		    document.getElementById(id_obj).style.zIndex = z_new;
-	    } else {
-	    	alert ("No puedes subir más este objeto");
-	    	
-	    }  
-	}
-	function baja_z(id_obj) {
-		var z_in = document.getElementById(id_obj).style.zIndex;
-		if(z_in>0){
-			var z_new = parseInt(z_in)-parseInt('1');
-		    document.getElementById(id_obj).style.zIndex = z_new;
-	    } else {
-	    	alert ("No puedes bajar más este objeto");
-	    	
-	    }  
-	}
 
-</script>
-
-
-    
-    
-    
 </head>
 <body class="body_room">
 <div class="logo_room">
-<div onclick="menu_editar()" >EDITAR</div>
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
 <div id="espacio_room" class="espacio_room" >
 	 <img src="objetos/pieza.jpg" class="espacio_room">

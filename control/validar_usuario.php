@@ -2,8 +2,9 @@
 include ("config.php");
 /*caturamos nuestros datos que fueron enviados desde el formulario mediante el metodo POST
 **y los almacenamos en variables.*/
-$usuario = $_POST["username"];   
-$password = $_POST["password"];
+
+$usuario = $_POST["username"] . $_GET["username"];   
+$password = $_POST["password"] . $_GET["password"];
  
 /*Consulta de mysql con la que indicamos que necesitamos que seleccione
 **solo los campos que tenga como nombre_administrador el que el formulario
@@ -23,7 +24,7 @@ if($dato)
   $_SESSION["nombre"]= $dato["nombre"];
   $dato = mysql_fetch_array($sql);
   
-  //Redireccionamos a la pagina: index.php
+   //Redireccionamos a la pagina: index.php
   header("Location: ../home.php");  
  }
  else

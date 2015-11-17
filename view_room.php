@@ -35,66 +35,12 @@ if(isset($_SESSION['user_room'])) {
 <script src="scripts/filesaver.js" type="text/javascript"></script>
 <script src="scripts/html2canvas.js" type="text/javascript"></script>   
 
-<script>
-//sube_z sube el z-index del objeto al que se hace click
-	function sube_z(id_obj) {
-		var z_in = document.getElementById(id_obj).style.zIndex;
-		if(z_in<4){
-			var z_new = parseInt(z_in)+parseInt('1');
-		    document.getElementById(id_obj).style.zIndex = z_new;
-	    } else {
-	    	alert ("No puedes subir más este objeto");
-	    	
-	    }  
-	}
-	function baja_z(id_obj) {
-		var z_in = document.getElementById(id_obj).style.zIndex;
-		if(z_in>0){
-			var z_new = parseInt(z_in)-parseInt('1');
-		    document.getElementById(id_obj).style.zIndex = z_new;
-	    } else {
-	    	alert ("No puedes bajar más este objeto");
-	    	
-	    }  
-	}
-
-</script>
-
 
 </head>
 <body class="body_room">
 <div class="logo_room">
 <div style = "height=60px; width=30%;" align="right" class="Estilo10"><br><?php include("top.php"); ?></div></div>
-<script type="text/javascript">
-      $(function() { 
-          $("#crearimagen").click(function() { 
-              html2canvas($("#espacio_room"), {
-                  onrendered: function(canvas) {
-                     theCanvas = canvas;
-                     var datax = theCanvas.toDataURL();
-        
-                     var parametros = {
-				                "datax"	: datax
-				        };
-				        $.ajax({
-				                data:  parametros,
-				                url:   'control/captura_cuarto.php',
-				                type:  'post',
-				                beforeSend: function () {
-				                        $("#resultado").html("Procesando, espere por favor...");
-				                },
-				                success:  function (response) {
-				                        $("#resultado").html(response);
-				                }
-				                
-				        });
-                      
-                  }
-              });
-          });
-      });
-    </script>
-      <button id="crearimagen"/>Crear Imagen</button>
+
 <div id="espacio_room" class="espacio_room" >
 	 <img src="objetos/pieza.jpg" class="espacio_room">
 	<?php
@@ -113,12 +59,14 @@ if(isset($_SESSION['user_room'])) {
 			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
 			//el script posterior convierte al div en draggable
 			echo '<div class="objeto" id="'. $id_objeto .'" style="z-index: '. $zindex .'; left:'.$left.'; top: '.$top.'; cursor: auto !important">
-			<img src="'.$ruta_imagen.'" style="height: '. $alto .'; width: '. $ancho .';"></br>
+			<img src="'.$ruta_imagen.'" style="max-height: '. $alto .'; max-width: '. $ancho .';"></br>
 			</div>' ;
 	}
 	 
 	?>
-	
+	<script type="text/javascript">
+     window.onload = captura('<?php echo $user ?>');
+    </script>
 	
 <?php } else {
 	echo 'Bienvenido <b>Visitante</b><br />

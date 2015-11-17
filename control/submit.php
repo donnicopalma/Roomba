@@ -56,16 +56,23 @@ $fecha = $ano."-".$mes."-".$dia;
 $sql = "INSERT INTO user (nombre, apellidos, contrasena, mail, sexo, fecha_nac, fecha_registro, dinero) VALUES ('$fname', '$lname', '$pass', '$email', '$sex', '$fecha', SYSDATE(), '99999')";
 $result = mysql_query($sql);
 
+$sql_r = mysql_query("SELECT id FROM user WHERE mail = '$email'");
+$dato = mysql_fetch_array($sql_r);
+
+$sql_a = ("INSERT INTO cuarto (id_user, contador_visitas, alto, largo, ancho, luces, color_luces, color) VALUES ('". $dato['id'] ."', '123', '123', '123', '123', '123', '123', '123');");
+$resulta= mysql_query($sql_a);
+
+mkdir("../usuarios/".$email);
 
 // Envía a página de registro exitoso
-echo msg(1,"registered.html");
+//echo msg(1,"registered.html");
 
+echo msg(1,'control/validar_usuario.php?username='. $email .'&password='. $pass);
 // Envía mensaje de error según las validaciones realizadas más arriba
 function msg($status,$txt)
 {
 	return '{"status":'.$status.',"txt":"'.$txt.'"}';
 }
-
 
 // Cierra la conexión con la base de datos
 mysql_close($link);

@@ -9,6 +9,27 @@ $(document).ready(function(){
 	
 });
 
+//sube_z sube el z-index del objeto al que se hace click
+	function sube_z(id_obj) {
+		var z_in = document.getElementById(id_obj).style.zIndex;
+		if(z_in<4){
+			var z_new = parseInt(z_in)+parseInt('1');
+		    document.getElementById(id_obj).style.zIndex = z_new;
+	    } else {
+	    	alert ("No puedes subir más este objeto");
+	    	
+	    }  
+	}
+	function baja_z(id_obj) {
+		var z_in = document.getElementById(id_obj).style.zIndex;
+		if(z_in>0){
+			var z_new = parseInt(z_in)-parseInt('1');
+		    document.getElementById(id_obj).style.zIndex = z_new;
+	    } else {
+	    	alert ("No puedes bajar más este objeto");
+	    	
+	    }  
+	}
 
 function register()
 {
@@ -146,3 +167,32 @@ $(function(){
         $(cur).slideToggle(300);
     });
 });
+
+//Funcion que saca una fotografía del cuarto y lio guarda como archivo en la carpeta de usuario.
+ function captura(mail) {
+          html2canvas($("#espacio_room"), {
+          onrendered: function(canvas) {
+             theCanvas = canvas;
+             var datax = theCanvas.toDataURL();
+
+             var parametros = {
+		                "datax"	: datax,
+		                "mail" : mail
+		        };
+		        $.ajax({
+		                data:  parametros,
+		                url:   'control/captura_cuarto.php',
+		                type:  'post',
+		                beforeSend: function () {
+		                        $("#resultado").html("Procesando, espere por favor...");
+		                },
+		                success:  function (response) {
+		                        $("#resultado").html(response);
+		                }
+		                
+		        });
+              
+          }
+      });
+  }
+  
