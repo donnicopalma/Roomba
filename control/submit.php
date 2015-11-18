@@ -64,10 +64,14 @@ $resulta= mysql_query($sql_a);
 
 mkdir("../usuarios/".$email);
 
+//Copia imagen de usuario y cuarto por defecto a carpetas.
+copy("../img/default/room.png","../usuarios/".$email."/room.png");
+copy("../img/default/new.png","../usuarios/".$email."/new.png");
+
 // Envía a página de registro exitoso
 //echo msg(1,"registered.html");
 
-echo msg(1,'control/validar_usuario.php?username='. $email .'&password='. $pass);
+echo msg(1,'control/validar_usuario.php?username='.$email.'&password='.$pass);
 // Envía mensaje de error según las validaciones realizadas más arriba
 function msg($status,$txt)
 {

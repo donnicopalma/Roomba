@@ -147,7 +147,7 @@ body {
         </tr>
       <tr>
         <td height="148" align="center" valign="middle">
-          <a href="<?php echo $dato['fotoB'] ?>"><img src= "<?php echo $dato['foto'] ?>" /></a></td>
+          <a href="usuarios/<?php echo $user ?>/new.png"><img src= "usuarios/<?php echo $user ?>/new.png" /></a></td>
         </tr>
       
       
