@@ -17,6 +17,7 @@ if($dato)
 //Si el usuario es correcto ahora validamos su contraseña
  if($dato["contrasena"] == $password)
  {
+ 	
   //Creamos sesión
   session_start();  
   //Almacenamos el nombre de usuario en una variable de sesión usuario

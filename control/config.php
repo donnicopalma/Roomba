@@ -11,6 +11,7 @@ $link or die('No se pudo conectar: ' . mysql_error());
 mysql_select_db($namedb) or die('No se pudo seleccionar la base de datos');
 
 
+mysql_query("SET NAMES 'utf8'");
 
 //$query = 'SELECT * FROM user';
 //$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());

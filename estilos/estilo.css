@@ -188,11 +188,17 @@ border-width:3px;
 	font-size: 10px;
 	color: #0000FF;
 }
-
+.Estilo29 {
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
 .desplegable_home {
 	background-image: url(../home/barra_centro.gif);
 	background-repeat: no-repeat;
-	padding: 41px 0px 0px 0px;
+	padding: 35px 0px 0px 0px;
+	margin-bottom: 8px; 
 }
 
 .cont_desplegable_home {

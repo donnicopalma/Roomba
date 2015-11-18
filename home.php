@@ -1,11 +1,11 @@
 <!DOCTYPE php>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
 
 <head>
 	<?php
 		require_once ("control/config.php");
 		
 		session_start();
+		
 		if(isset($_SESSION['user_room'])) {
 			// Se almacenan datos de usuario en array $datos.
 			// La selección de otros datos será en base al uso del campo ID 
@@ -21,19 +21,7 @@
 <script type="text/javascript" src="scripts/script.js"></script>
 <link href="estilos/demo.css" rel="stylesheet" type="text/css" />
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-<!--
-body {
-	margin-top: 0px;
-}
-.Estilo29 {
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	color: #FFFFFF;
-}
--->
-</style>
+
 </head>
 <body>
 <table width="958" border="0" align="center" cellpadding="0" cellspacing="0" class="home">
@@ -675,37 +663,9 @@ body {
   <tr>
     <td height="249">&nbsp;</td>
     <td>&nbsp;</td>
-    <td rowspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-      <!--DWLayoutTable-->
-      <tr>
-      <div class="desplegable_home">
-      	
-	      	<div class="cont_desplegable_home">
-		      	<?php
-		      		echo '<img src="usuarios/'.$dato['mail'].'/room.png" style="width: 419px;"/>';
-		      	?>
-	      	</div>
-      	</div>
-      <div class="desplegable_home">
-      	
-	      	<div class="cont_desplegable_home">
-		    
-	      	</div>
-      	</div>
-      <div class="desplegable_home">
-      	
-	      	<div class="cont_desplegable_home">
-		    
-	      	</div>
-      	</div>
-      <div class="desplegable_home">
-      	
-	      	<div class="cont_desplegable_home">
-		    
-	      	</div>
-      	</div>
-      </tr>
-      </table></td>
+    <td rowspan="3" valign="top">
+    <?php include ('contenido_centro.php'); ?>
+    </td>
   </tr>
   
   
