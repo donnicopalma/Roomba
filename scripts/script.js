@@ -196,3 +196,17 @@ $(function(){
       });
   }
   
+function abrir_edit_foto() {
+  $( "#edit_foto" ).dialog({
+      modal: true,
+      buttons: {
+            "OK": function() {
+                $( this ).dialog( "close" );
+            },
+            "Cancelar": function() {
+                $( this ).dialog( "close" );
+            }
+        }
+  });
+};
+  

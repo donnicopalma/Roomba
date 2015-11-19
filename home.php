@@ -17,10 +17,15 @@
 	?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/script.js"></script>
 <link href="estilos/demo.css" rel="stylesheet" type="text/css" />
 <link href="estilos/estilo.css" rel="stylesheet" type="text/css" />
+
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+ <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+ <script src="scripts/foto_usr.js"></script>
+ 
 
 </head>
 <body>
@@ -33,14 +38,16 @@
         <td width="34" height="13" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
           <!--DWLayoutTable-->
           <tr>
-            <td width="9" height="13" valign="top"><div class="sample_popup" id="popup" style="display: none;">
+            <td width="9" height="13" valign="top">
+            	<div class="edit_foto" id="edit_foto" style="display: none;">
               
-              <div class="menu_form_header" id="popup_drag">
-                <img class="menu_form_exit"   id="popup_exit" src="form_exit.png" alt="" />
-                &nbsp;&nbsp;&nbsp;Roomba </div>
-              <div class="menu_form_body">
-                <?php include ("subirfoto.php") ?>
-              </div>
+              <div class="content">
+              	
+		            <input type="file" id="imagess" name="imagess[]" />
+		            <button id="btnSubmit">Subir archivo</button>
+		            
+		            <div id="response"></div>
+		        </div>
               </div></td>
                 <td width="25"></td>
             </tr>
@@ -140,7 +147,7 @@
       
       
       <tr>
-        <td height="15" valign="top" class="sample_popup"><label class="Estilo10" id="pos_right" onclick="popup_show('popup', 'popup_drag', 'popup_exit', 'mouse',               -10, -10);" ><a href="#">Cambiar&nbsp;Fotograf&iacute;a</a></label></td>
+        <td height="15" valign="top" class="sample_popup"><label class="Estilo10" id="pos_right" onclick="abrir_edit_foto()" ><a href="#">Cambiar&nbsp;Fotograf&iacute;a</a></label></td>
         </tr>
       <tr>
         <td height="89">&nbsp;</td>
