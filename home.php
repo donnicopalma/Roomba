@@ -38,7 +38,7 @@
           <!--DWLayoutTable-->
           <tr>
             <td width="9" height="13" valign="top">
-            	<div class="edit_foto" id="edit_foto" style="display: none;">
+            	<div id="edit_foto" style="display: none;">
               
               <div class="content">
               	
@@ -142,7 +142,7 @@
         </tr>
       <tr>
         <td height="148" align="center" valign="middle">
-          <a href="usuarios/<?php echo $user ?>/new.png"><img src= "usuarios/<?php echo $user ?>/new.png" /></a></td>
+          <a href="usuarios/<?php echo $user ?>/new.png"><img src= "usuarios/<?php echo $user ?>/new.png" style="max-height: 148px; max-width: 125px;" /></a></td>
         </tr>
       
       
