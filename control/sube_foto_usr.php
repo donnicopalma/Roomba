@@ -1,7 +1,7 @@
 <?php
     foreach($_FILES['imagess']['error'] as $key => $error){
         if($error == UPLOAD_ERR_OK){
-            $name = 'usuarios/nico/new.png';
+            $name = '../usuarios/nico/new.png';
             move_uploaded_file($_FILES['imagess']['tmp_name'][$key], $name);
         }
     }
