@@ -3,6 +3,7 @@
 <head>
 <?php require_once('control/config.php'); ?>
 <?php
+header('Content-Type: text/html; charset=UTF-8'); 
 	define('INCLUDE_CHECK',1);
 	require "control/functions.php";
 	

@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 08-10-2015 a las 00:20:06
--- Versión del servidor: 5.5.16
--- Versión de PHP: 5.3.8
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-11-2015 a las 14:07:02
+-- Versión del servidor: 5.6.11
+-- Versión de PHP: 5.5.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `roomb_users`
 --
+CREATE DATABASE IF NOT EXISTS `roomb_users` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `roomb_users`;
 
 -- --------------------------------------------------------
 
@@ -44,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `amigo` (
 CREATE TABLE IF NOT EXISTS `cuarto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
-  `contador_visitas` int(11) NOT NULL,
+  `fondo` varchar(40) NOT NULL,
+  `valoracion_visitas` int(11) NOT NULL,
   `alto` int(11) NOT NULL,
   `largo` int(11) NOT NULL,
   `ancho` int(11) NOT NULL,
@@ -59,9 +62,10 @@ CREATE TABLE IF NOT EXISTS `cuarto` (
 -- Volcado de datos para la tabla `cuarto`
 --
 
-INSERT INTO `cuarto` (`id`, `id_user`, `contador_visitas`, `alto`, `largo`, `ancho`, `luces`, `color_luces`, `color`) VALUES
-(1, 1, 0, 20, 20, 20, 20, 20, '20'),
-(2, 2, 2112, 1212, 2121, 212121, 21, 12, '12');
+INSERT INTO `cuarto` (`id`, `id_user`, `fondo`, `valoracion_visitas`, `alto`, `largo`, `ancho`, `luces`, `color_luces`, `color`) VALUES
+(1, 1, '', 0, 20, 20, 20, 20, 20, '20'),
+(2, 2, '', 2112, 1212, 2121, 212121, 21, 12, '12'),
+(3, 30, '', 123, 123, 123, 123, 123, 123, '123');
 
 -- --------------------------------------------------------
 
@@ -110,29 +114,28 @@ CREATE TABLE IF NOT EXISTS `objeto` (
   `id_tipo_objeto` int(11) DEFAULT NULL,
   `ruta` varchar(100) NOT NULL,
   `z-index` int(10) NOT NULL,
-  `alto` int(4) DEFAULT NULL,
-  `ancho` int(4) NOT NULL,
+  `alto` varchar(6) DEFAULT NULL,
+  `ancho` varchar(6) DEFAULT NULL,
   `left` int(5) DEFAULT NULL,
   `top` int(5) DEFAULT NULL,
-  `new` int(1) NOT NULL,
+  `new` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_tipo_objeto` (`id_tipo_objeto`),
   KEY `id_cuarto` (`id_cuarto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Volcado de datos para la tabla `objeto`
 --
 
 INSERT INTO `objeto` (`id`, `id_cuarto`, `id_tipo_objeto`, `ruta`, `z-index`, `alto`, `ancho`, `left`, `top`, `new`) VALUES
-(115, 1, 2, 'objetos/armario.png', 0, 0, 0, -247, 195, 0),
-(116, 1, 2, 'objetos/armario.png', 0, 0, 0, 316, 82, 0),
-(117, 1, 2, 'objetos/cama-1.png', 0, 0, 0, -15, 13, 0),
-(118, 1, 2, 'objetos/armario.png', 0, 0, 0, 5, -351, 0),
-(119, 2, 2, 'objetos/armario.png', 0, 0, 0, -386, 331, 0),
-(120, 2, 2, 'objetos/cama-1.png', 0, 0, 0, -165, 154, 0),
-(121, 2, 2, 'objetos/armario.png', 0, 0, 0, 34, -49, 0),
-(122, 2, 2, 'objetos/cama-1.png', 0, 0, 0, 239, -118, 0);
+(22, 3, 2, 'objetos/muebles/armario.png', 1, '281px', '166px', 675, 147, 0),
+(23, 3, 2, 'objetos/muebles/cama-1.png', 0, '206px', '436px', 238, 244, 0),
+(24, 3, 2, 'objetos/electronica/televisores/radio_sony.png', 0, '170px', '90px', 883, 293, 0),
+(25, 3, 2, 'objetos/electronica/televisores/tele_sony1.png', 0, '156px', '211px', 19, 109, 0),
+(34, 1, 2, 'objetos/muebles/armario_full.png', 0, '245px', '407px', 322, 150, 0),
+(36, 1, 2, 'objetos/electronica/televisores/tele_sony1.png', 0, '164px', '217px', 28, 119, 0),
+(38, 1, 2, 'objetos/muebles/cama-2.png', 0, '203px', '283px', 626, 250, 0);
 
 -- --------------------------------------------------------
 
@@ -188,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fecha_registro` date DEFAULT NULL,
   `dinero` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -196,8 +199,44 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`ID`, `nombre`, `apellidos`, `contrasena`, `mail`, `sexo`, `fecha_nac`, `fecha_registro`, `dinero`) VALUES
 (1, 'Nicolás', 'Palma Silva', '123456', 'nico', 1, '1987-05-25', '2015-09-16', 99999),
-(2, 'Luis', 'Guajardo', '123456', 'luis', 0, '1991-03-08', '2015-08-24', 9999999),
-(29, 'lucho', 'guajardo figueroa', '123546', 'luchiani@hotmail.com', 1, '2010-05-05', '2015-09-23', 99999);
+(2, 'Luis', 'Guajardo', '123456', 'luchiani@gmail.com', 0, '1991-03-08', '2015-08-24', 9999999),
+(29, 'lucho', 'guajardo figueroa', '123546', 'luchiani@hotmail.com', 1, '2010-05-05', '2015-09-23', 99999),
+(30, 'mememe', 'rmmrmr', '123456798', 'popoo@popo.cl', 1, '2013-03-03', '2015-11-17', 99999);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `pass` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `fotoB` varchar(250) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `fecha_nac` varchar(255) NOT NULL,
+  `ocup` varchar(255) NOT NULL,
+  `ocup_s` varchar(255) NOT NULL,
+  `pais` varchar(255) NOT NULL,
+  `region` varchar(255) NOT NULL,
+  `sexo` varchar(255) NOT NULL,
+  `zipcode` varchar(255) NOT NULL,
+  `nivel` int(4) NOT NULL,
+  `fecha_registro` varchar(255) NOT NULL,
+  `hora_registro` varchar(255) NOT NULL,
+  `IP` tinytext NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `pass`, `user`, `foto`, `fotoB`, `nombre`, `apellidos`, `fecha_nac`, `ocup`, `ocup_s`, `pais`, `region`, `sexo`, `zipcode`, `nivel`, `fecha_registro`, `hora_registro`, `IP`) VALUES
+(1, '1234', 'nico', 'nicolas/new2.png', 'nicolas/new.png', 'nico', 'palma', '', '', '', '', '', 'm', '', 1, '', '', '');
 
 --
 -- Restricciones para tablas volcadas

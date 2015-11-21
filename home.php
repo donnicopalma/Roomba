@@ -14,6 +14,8 @@
 			$dato = mysql_fetch_array($sql_data);
 			$other_page = "<a class='Estilo10' href='view_room.php'>Ver mi Roomba</a>";
 			$other_page2 = "<a class='Estilo10' href='edit_room.php'>Editar mi Roomba</a>";
+			$sql_amigoa = mysql_query("SELECT nombre, apellidos, mail FROM user");
+			
 	?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>

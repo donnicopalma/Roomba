@@ -89,7 +89,21 @@
     <td height="127" colspan="5" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <!--DWLayoutTable-->
       <tr>
-        <td width="325" height="127">yuguyg</td>
+        <td width="325" height="127" >
+        <div style="margin: 25px 0px 0px 100px;">
+<?php
+
+			$sql_amigoa = mysql_query("SELECT nombre, apellidos, mail FROM user");
+$dato_objeto = mysql_fetch_assoc($sql_amigoa);
+		
+			$nombrea = $dato_objeto['nombre'];
+			$apellidosa = $dato_objeto['apellidos'];
+			$maila = $dato_objeto['mail'];
+			$sql_amigoa = mysql_query("SELECT nombre, apellidos, mail FROM user");
+echo '<a href="room_amigo.php?mail='.$maila.'"><div> '.$nombrea.' '.$apellidosa.'</div><div><img src="usuarios/'.$maila.'/room.png" width="130" /></div></a></br>' ;
+?>
+	</div>
+</td>
       </tr>
     </table>    </td>
   </tr>
