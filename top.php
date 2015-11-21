@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8'); 
 if(isset($_SESSION['user_room'])) {
 		
 	echo 'Bienvenido <span class="Estilo10"><b>' .$_SESSION["nombre"]. '</b></span><br />';

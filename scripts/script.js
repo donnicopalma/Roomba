@@ -209,4 +209,21 @@ function abrir_edit_foto() {
         }
   });
 };
+
+function sube_baja(elemento) {
+        ///// capturamos el elemento
+    item=$("#"+elemento);
+       ///// verificamos su estado
+    if($(item).hasClass('cont_desplegable_home')) {
+                //// animamos
+        $(item).slideUp('fast');
+        $(item).removeClass('cont_desplegable_home');
+                //// cambiamos su estado
+        $(item).addClass('invisible');
+    } else {
+        $(item).removeClass('invisible');
+        $(item).addClass('cont_desplegable_home');
+        $(item).slideDown('fast');
+    }
+}
   

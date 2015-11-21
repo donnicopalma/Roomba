@@ -197,7 +197,7 @@ border-width:3px;
 .desplegable_home {
 	background-image: url(../home/barra_centro.gif);
 	background-repeat: no-repeat;
-	padding: 35px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	margin-bottom: 8px; 
 }
 
@@ -205,4 +205,7 @@ border-width:3px;
 	border-color: #fbc22b;
 	border-width: 4px;
 	border-style: solid;
+}
+.cont_flecha {
+	padding: 14px 0px 8px 10px;
 }
