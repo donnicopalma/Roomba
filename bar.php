@@ -19,7 +19,7 @@
     <td height="29" align="center" valign="middle"><a href="noticias.php" class="Bar">Noticias</a></td>
     <td align="center" valign="middle"><a href="games.php" class="Bar">Juegos</a></td>
     <td align="center" valign="middle"><a href="mall.php" class="Bar">RooMall</a></td>
-    <td align="center" valign="middle"><a href="world.php" class="Bar">Roombania</a></td>
+    <td align="center" valign="middle"><a href="amigos.php" class="Bar">Roombania</a></td>
   </tr>
   
   <tr>

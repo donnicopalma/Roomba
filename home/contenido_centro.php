@@ -15,9 +15,11 @@
   	<div class="desplegable_home">
   	
       	<div onclick="sube_baja('cuadro2')">
-      		<div class="cont_flecha" ><img alt="" id="bot" src="home/fabajo.gif"></div></div>
+      		<div class="cont_flecha" ><img alt="" id="bot" src="home/fabajo.gif">  Mis Roombas favoritos</div></div>
       	<div class="cont_desplegable_home" id="cuadro2" >
+	      	</br> HOLI 
 	      	
+	      	CHAI
 				
       	</div>
   	</div>
@@ -26,7 +28,7 @@
       	<div onclick="sube_baja('cuadro3')">
       		<div class="cont_flecha" ><img alt="" id="bot" src="home/fabajo.gif"></div></div>
       	<div class="cont_desplegable_home" id="cuadro3" >
-	      	
+	      	</br> 
 	      	
       	</div>
   	</div>

@@ -14,6 +14,7 @@
 			$dato = mysql_fetch_array($sql_data);
 			$other_page = "<a class='Estilo10' href='view_room.php'>Ver mi Roomba</a>";
 			$other_page2 = "<a class='Estilo10' href='edit_room.php'>Editar mi Roomba</a>";
+			$sql_amigoa = mysql_query("SELECT nombre, apellidos, mail FROM user");
 	?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Roomba | <?php echo $dato['nombre'] . " " . $dato['apellidos']; ?></title>
@@ -532,7 +533,21 @@
     <td height="249">&nbsp;</td>
     <td>&nbsp;</td>
     <td rowspan="3" valign="top">
-    <?php include ('home/contenido_centro.php'); ?>
+
+<?php
+	//ciclo que carga los datos de los objetos y los imprime a través de un echo
+	while ($dato_objeto = mysql_fetch_assoc($sql_amigoa)) {
+		
+			$nombrea = $dato_objeto['nombre'];
+			$apellidosa = $dato_objeto['apellidos'];
+			$maila = $dato_objeto['mail'];
+			//Div que recibe los datos extraidos y los coloca en pnatalla según su ubicación left top.
+			//el script posterior convierte al div en draggable
+			echo '<a href="room_amigo.php?mail='.$maila.'"><div> '.$nombrea.' '.$apellidosa.'</div><div><img src="usuarios/'.$maila.'/room.png" width="130" /></div></a></br>
+			</div>' ;
+	}
+	 
+	?>
     </td>
   </tr>
   
@@ -540,7 +555,7 @@
   
   
   <tr>
-    <td height500">&nbsp;</td>
+    <td height="222">&nbsp;</td>
     <td colspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="principal">
       <!--DWLayoutTable-->
       <tr>
@@ -554,10 +569,13 @@
       
       <!--DWLayoutTable-->
       
-      	<tr>
-	        <td height="15"></td>
-	          <td valign="top"><a href="edit_room.php">Editar mi ROOMBA</a></td>
-        </tr>   
+      <tr>
+        <td height="15"></td>
+          <td valign="top">Ir a mi ROOMBA</td>
+        </tr>
+      
+      
+      
       
         <tr>
           <td height="3"></td>
@@ -572,7 +590,7 @@
         </tr>
       <tr>
         <td height="15"></td>
-          <td valign="top"><a href="view_room.php">Ver mi Roomba</a></td>
+          <td valign="top"><p>Roombas favoritos</p></td>
         </tr>
       <tr>
         <td height="3"></td>
@@ -587,7 +605,7 @@
         </tr>
       <tr>
         <td height="15"></td>
-          <td valign="top">Roombas favoritos</td>
+          <td valign="top">Editar perfil</td>
         </tr>
       <tr>
         <td height="3"></td>
