@@ -457,149 +457,9 @@
         </tr>
       <tr>
         <td height="383" colspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-          <!--DWLayoutTable-->
-          <tr>
-            <td height="44" colspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-              <!--DWLayoutTable-->
-              <tr>
-                <td width="13" height="23">&nbsp;</td>
-                      <td width="204">&nbsp;</td>
-                    </tr>
-              <tr>
-                <td height="18"></td>
-                      <td valign="top"><span class="Estilo29">Roombas Destacados</span></td>
-                    </tr>
-              <tr>
-                <td height="3"></td>
-                      <td></td>
-                    </tr>
-              
-              
-              </table></td>
-              </tr>
-          
-          <tr>
-            <td width="7" height="339">&nbsp;</td>
-              <td width="165" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <!--DWLayoutTable-->
-                <tr>
-                  <td width="165" height="40" valign="top"><img src="home/up.gif" width="165" height="40" /></td>
-                    </tr>
-                <tr>
-                  <td height="240">&nbsp;</td>
-                    </tr>
-                <tr>
-                  <td height="40" valign="top"><img src="home/down.gif" width="165" height="40" /></td>
-                    </tr>
-                <tr>
-                  <td height="19"></td>
-                  </tr>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-              </table></td>
+          <?php include("home/roombas_destacados.php"); ?>
               <td width="45">&nbsp;</td>
           </tr>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           </table></td>
         </tr>
@@ -672,7 +532,7 @@
     <td height="249">&nbsp;</td>
     <td>&nbsp;</td>
     <td rowspan="3" valign="top">
-    <?php include ('contenido_centro.php'); ?>
+    <?php include ('home/contenido_centro.php'); ?>
     </td>
   </tr>
   
